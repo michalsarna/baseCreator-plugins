@@ -20,11 +20,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Which baseCreator
         id: base
         run: echo "tag=$(cat .baseCreator-version)" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           repository: michalsarna/baseCreator
           ref: ${{ steps.base.outputs.tag }}

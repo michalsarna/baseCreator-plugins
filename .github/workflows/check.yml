@@ -21,8 +21,10 @@ jobs:
           repository: michalsarna/baseCreator
           ref: ${{ steps.base.outputs.tag }}
           path: baseCreator
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249 # stable
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
         with:
           workspaces: baseCreator
       - name: Run the scripts of every plugin

@@ -40,7 +40,7 @@ jobs:
       - name: Build the site
         run: python3 tools/build_site.py --out site --published https://michalsarna.github.io/baseCreator-plugins/index.json
       - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - id: deployment

@@ -1,0 +1,16 @@
+name: Change or update request
+description: A plugin needs a new feature, a fix or a newer version
+labels: ["update"]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+    validations:
+      required: true

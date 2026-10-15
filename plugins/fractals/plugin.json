@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "id": "fractals",
+  "name": "Fractals",
+  "version": "1.0.0",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "min_base": "0.9.8",
+  "description": "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.",
+  "texts": {
+    "pl": {
+      "Fractals": "Fraktale",
+      "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.": "Generuje klasyczne fraktale jako kontury: trójkąt i dywan Sierpińskiego, płatek Kocha, krzywe Hilberta i smoka, drzewo Pitagorasa. Wybierz jeden, ustaw głębokość i rozmiar, a zostanie dodany do rysunku.",
+      "Fractal": "Fraktal",
+      "Sierpinski triangle": "Trójkąt Sierpińskiego",
+      "Sierpinski carpet": "Dywan Sierpińskiego",
+      "Koch snowflake": "Płatek Kocha",
+      "Hilbert curve": "Krzywa Hilberta",
+      "Dragon curve": "Krzywa smoka",
+      "Pythagoras tree": "Drzewo Pitagorasa",
+      "Depth (steps)": "Głębokość (kroki)",
+      "Width": "Szerokość",
+      "Put in the middle of the work area": "Połóż na środku pola roboczego",
+      "Layer": "Warstwa",
+      "Angle of the branches": "Kąt gałęzi"
+    },
+    "de": {
+      "Fractals": "Fraktale",
+      "Fractal": "Fraktal",
+      "Sierpinski triangle": "Sierpinski-Dreieck",
+      "Sierpinski carpet": "Sierpinski-Teppich",
+      "Koch snowflake": "Koch-Schneeflocke",
+      "Hilbert curve": "Hilbert-Kurve",
+      "Dragon curve": "Drachenkurve",
+      "Pythagoras tree": "Pythagoras-Baum",
+      "Depth (steps)": "Tiefe (Schritte)",
+      "Width": "Breite",
+      "Put in the middle of the work area": "In die Mitte des Arbeitsbereichs setzen",
+      "Layer": "Ebene",
+      "Angle of the branches": "Winkel der Äste"
+    }
+  },
+  "generators": [
+    {
+      "id": "fractal",
+      "name": "Fractals",
+      "description": "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.",
+      "script": "fractal.rhai",
+      "params": [
+        { "id": "kind", "label": "Fractal", "kind": "choice", "default": "Sierpinski triangle", "options": ["Sierpinski triangle", "Sierpinski carpet", "Koch snowflake", "Hilbert curve", "Dragon curve", "Pythagoras tree"] },
+        { "id": "depth", "label": "Depth (steps)", "kind": "number", "default": 4, "min": 1, "max": 14 },
+        { "id": "width", "label": "Width", "kind": "number", "default": 100, "min": 5, "max": 5000, "unit": "mm" },
+        { "id": "angle", "label": "Angle of the branches", "kind": "number", "default": 45, "min": 15, "max": 75, "unit": "°" },
+        { "id": "middle", "label": "Put in the middle of the work area", "kind": "bool", "default": true },
+        { "id": "layer", "label": "Layer", "kind": "number", "default": 0, "min": 0, "max": 15 }
+      ]
+    }
+  ]
+}

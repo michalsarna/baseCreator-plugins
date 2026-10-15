@@ -1,0 +1,24 @@
+{
+  "format": 1,
+  "id": "my-generator",
+  "name": "My generator",
+  "version": "1.0.0",
+  "min_base": "0.9.8",
+  "author": "Your name",
+  "license": "MIT OR Apache-2.0",
+  "description": "A shape with a form: a row of circles.",
+  "generators": [
+    {
+      "id": "circles",
+      "name": "Row of circles",
+      "description": "Equal circles in a row, in the middle of the work area.",
+      "script": "circles.rhai",
+      "params": [
+        { "id": "count", "label": "Number of circles", "kind": "number", "default": 5, "min": 1, "max": 100 },
+        { "id": "diameter", "label": "Diameter", "kind": "number", "default": 10, "min": 0.5, "max": 500, "unit": "mm" },
+        { "id": "gap", "label": "Gap", "kind": "number", "default": 4, "min": 0, "max": 100, "unit": "mm" },
+        { "id": "layer", "label": "Layer", "kind": "number", "default": 0, "min": 0, "max": 15 }
+      ]
+    }
+  ]
+}

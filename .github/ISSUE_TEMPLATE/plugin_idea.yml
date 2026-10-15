@@ -1,0 +1,29 @@
+name: Plugin idea
+description: Suggest a plugin (or offer to write one)
+labels: ["plugin-idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should the plugin do?
+      description: A generator (which shapes, which settings), an importer (which file format, a sample), a postprocessor (which controller), or a pack.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      multiple: true
+      options: [Generator, Importer, Postprocessor, Presets, Clipart, Translations, Other]
+  - type: dropdown
+    id: programs
+    attributes:
+      label: For which programs?
+      multiple: true
+      options: [LightCreator, MillCreator, PenCreator]
+  - type: checkboxes
+    id: write
+    attributes:
+      label: Would you write it?
+      options:
+        - label: I would like to try writing it (I have read the guide)

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: A bug in a program or in the Plugins window
+    url: https://github.com/michalsarna/baseCreator/issues
+    about: The plugin system itself (installing, the lists, the sandbox) is part of baseCreator.
+  - name: Report a harmful plugin privately
+    url: https://github.com/michalsarna/baseCreator-plugins/security/advisories/new
+    about: Please do not open a public issue for security problems.

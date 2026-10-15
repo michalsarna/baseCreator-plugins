@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "id": "my-postprocessor",
+  "name": "My postprocessor",
+  "version": "1.0.0",
+  "min_base": "0.9.8",
+  "author": "Your name",
+  "license": "MIT OR Apache-2.0",
+  "description": "Adds a comment with the program name at the top of the G-code.",
+  "postprocessors": [
+    { "id": "header", "name": "Add a header comment", "description": "A first line (comment) for controllers that like one.", "script": "header.rhai" }
+  ]
+}

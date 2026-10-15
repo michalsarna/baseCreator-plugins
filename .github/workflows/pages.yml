@@ -1,0 +1,45 @@
+name: Publish the list
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Which baseCreator
+        id: base
+        run: echo "tag=$(cat .baseCreator-version)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          repository: michalsarna/baseCreator
+          ref: ${{ steps.base.outputs.tag }}
+          path: baseCreator
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: baseCreator
+      - name: Run the scripts of every plugin
+        run: cargo run --release --manifest-path baseCreator/Cargo.toml -p base-core --example check_plugins -- plugins
+      - name: Build the site
+        run: python3 tools/build_site.py --out site --published https://michalsarna.github.io/baseCreator-plugins/index.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

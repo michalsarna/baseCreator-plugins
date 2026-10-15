@@ -1,0 +1,30 @@
+name: Plugin bug
+description: A plugin from the list does not work as it should
+labels: ["bug"]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin and version
+      placeholder: fractals 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: program
+    attributes:
+      label: Program and version
+      placeholder: MillCreator v0.2.9, macOS
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: The exact steps, the values in the form, and the message you saw.
+    validations:
+      required: true
+  - type: textarea
+    id: file
+    attributes:
+      label: A file that shows it (optional)
+      description: For an importer, a small sample file. Do not attach anything private.

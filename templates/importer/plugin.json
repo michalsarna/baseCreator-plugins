@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "id": "my-importer",
+  "name": "My importer",
+  "version": "1.0.0",
+  "min_base": "0.9.8",
+  "author": "Your name",
+  "license": "MIT OR Apache-2.0",
+  "description": "Reads .boxes files: one line per rectangle, `x y width height` in millimetres.",
+  "importers": [
+    { "id": "boxes", "name": "Boxes (.boxes)", "extensions": ["boxes"], "script": "read.rhai" }
+  ]
+}

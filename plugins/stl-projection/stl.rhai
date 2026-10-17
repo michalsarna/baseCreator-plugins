@@ -22,9 +22,11 @@ fn form(data, ctx) {
     fields.push(#{ id: "facing", label: "Show only planes facing", kind: "choice", options: ["up", "down", "sideways", "any way"], "default": "up" });
     fields.push(#{ id: "min_area", label: "Smallest plane", kind: "number", "default": 1.0, min: 0.0, max: 1000000.0, unit: "mm²" });
     let groups = m.groups(1.0, 0.05);
+    // A form has at most 40 fields in all, five of them above: the biggest planes get a tick box, the rest follow the filters.
+    groups.sort(|a, b| if a.area > b.area { -1 } else if a.area < b.area { 1 } else { 0 });
     let shown = 0;
     for g in groups {
-        if shown >= 40 { break; }
+        if shown >= 35 { break; }
         shown += 1;
         let arrow = if g.nz > 0.5 { "↑" } else if g.nz < -0.5 { "↓" } else { "↔" };
         let z0 = g.min_z.round().to_int();

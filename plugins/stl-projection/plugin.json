@@ -2,7 +2,7 @@
   "format": 1,
   "id": "stl-projection",
   "name": "STL projection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
   "description": "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.",

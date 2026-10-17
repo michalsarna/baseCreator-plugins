@@ -135,6 +135,14 @@ files in *Import with a plugin…*, in Open and on drag and drop. The script get
 UTF-8 become `�`) and returns shapes. Put a small file in `tests/sample.<extension>` (see [`xy-points-importer`](../plugins/xy-points-importer)):
 the checks of this repository run the importer on it.
 
+**Binary files, a form and a preview** (baseCreator 1.6.0; say `"min_base": "1.6.0"`). With `"binary": true` the script gets a
+blob of bytes (`read_f32(data, pos)`, `read_f64`, `data.parse_le_int(pos, len)`). `params` (like a generator's form) and
+`"form": true` (a script function `form(data, ctx)` that makes more fields from the file) put a form in front of the import;
+the values are in `ctx.p`. The program then opens an import window with the form and a **preview** (the script is run in the
+background after each change). A script that loops over a lot of data should use the native helpers (`read_stl(data)` and its
+`groups`, `project`, `section`; `union_polygons`; `xf_rings`): Rhai checks the size of arrays after every change, so building
+big arrays in a script is slow. See [`stl-projection`](../plugins/stl-projection) and the plugins guide in baseCreator.
+
 ## 6. Postprocessors
 
 A postprocessor rewrites the G-code of **Export G-code…** (not the job that is sent straight to a machine). It gets the

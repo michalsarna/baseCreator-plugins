@@ -1,4 +1,7 @@
 # Changelog
+## 0.2.0
+* A 3D view of the model in the import window: turn it with the mouse or pick a view (top, bottom, front, back, left, right), and the outlines are the shadow, the chosen planes or the slice of the model seen that way, ready to be put in the program. Needs baseCreator 1.10.0.
+* The window of the import can be resized: the form and the previews follow it.
 ## 0.1.1
 * Models with many planes no longer fail with "form(): too many fields": the 35 biggest planes get a tick box (the rest follow the filters).
 ## 0.1.0

@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "id": "box-nets",
+  "name": "Box nets",
+  "version": "1.0.0",
+  "min_base": "0.9.8",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "description": "The net of a box to cut out of paper or card: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle.",
+  "programs": [
+    "pencreator"
+  ],
+  "generators": [
+    {
+      "id": "box-net",
+      "name": "Box net",
+      "description": "The net of a box to cut out of paper or card: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle.",
+      "script": "box.rhai",
+      "params": [
+        {
+          "id": "base",
+          "label": "Base",
+          "kind": "choice",
+          "default": "Rectangle",
+          "options": [
+            "Triangle",
+            "Rectangle",
+            "Trapezoid",
+            "Regular polygon"
+          ]
+        },
+        {
+          "id": "solid",
+          "label": "Solid (a pyramid: triangle or rectangle only)",
+          "kind": "choice",
+          "default": "Prism",
+          "options": [
+            "Prism",
+            "Pyramid",
+            "Truncated prism"
+          ]
+        },
+        {
+          "id": "height",
+          "label": "Height",
+          "kind": "number",
+          "default": 30,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "slant",
+          "label": "Slant of the top (truncated prism)",
+          "kind": "number",
+          "default": 15,
+          "min": 0,
+          "max": 25,
+          "unit": "%"
+        },
+        {
+          "id": "tri_a",
+          "label": "Triangle: side a",
+          "kind": "number",
+          "default": 50,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "tri_b",
+          "label": "Triangle: side b",
+          "kind": "number",
+          "default": 50,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "tri_c",
+          "label": "Triangle: side c",
+          "kind": "number",
+          "default": 50,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "rect_w",
+          "label": "Rectangle: width",
+          "kind": "number",
+          "default": 60,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "rect_d",
+          "label": "Rectangle: depth",
+          "kind": "number",
+          "default": 40,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "trap_a",
+          "label": "Trapezoid: bottom width",
+          "kind": "number",
+          "default": 60,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "trap_b",
+          "label": "Trapezoid: top width",
+          "kind": "number",
+          "default": 30,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "trap_d",
+          "label": "Trapezoid: height",
+          "kind": "number",
+          "default": 40,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "poly_n",
+          "label": "Polygon: number of sides (8 or more)",
+          "kind": "number",
+          "default": 8,
+          "min": 8,
+          "max": 60
+        },
+        {
+          "id": "poly_side",
+          "label": "Polygon: side length",
+          "kind": "number",
+          "default": 25,
+          "min": 1,
+          "max": 1000,
+          "unit": "mm"
+        },
+        {
+          "id": "tab",
+          "label": "Glue tab width",
+          "kind": "number",
+          "default": 8,
+          "min": 2,
+          "max": 50,
+          "unit": "mm"
+        },
+        {
+          "id": "dash",
+          "label": "Dash of the fold lines",
+          "kind": "number",
+          "default": 4,
+          "min": 0.5,
+          "max": 50,
+          "unit": "mm"
+        },
+        {
+          "id": "dash_gap",
+          "label": "Gap of the fold lines",
+          "kind": "number",
+          "default": 2,
+          "min": 0.2,
+          "max": 50,
+          "unit": "mm"
+        },
+        {
+          "id": "space",
+          "label": "Space between the pieces",
+          "kind": "number",
+          "default": 10,
+          "min": 1,
+          "max": 200,
+          "unit": "mm"
+        },
+        {
+          "id": "cut_layer",
+          "label": "Layer of the outline",
+          "kind": "number",
+          "default": 0,
+          "min": 0,
+          "max": 15
+        },
+        {
+          "id": "fold_layer",
+          "label": "Layer of the folds",
+          "kind": "number",
+          "default": 1,
+          "min": 0,
+          "max": 15
+        }
+      ]
+    }
+  ],
+  "texts": {
+    "pl": {
+      "Box net": "Siatka pudełka",
+      "Base": "Podstawa",
+      "Triangle": "Trójkąt",
+      "Rectangle": "Prostokąt",
+      "Trapezoid": "Trapez",
+      "Regular polygon": "Wielokąt foremny",
+      "Solid (a pyramid: triangle or rectangle only)": "Bryła (ostrosłup: tylko trójkąt lub prostokąt)",
+      "Prism": "Graniastosłup",
+      "Pyramid": "Ostrosłup",
+      "Truncated prism": "Graniastosłup ścięty",
+      "Height": "Wysokość",
+      "Slant of the top (truncated prism)": "Skos góry (graniastosłup ścięty)",
+      "Triangle: side a": "Trójkąt: bok a",
+      "Triangle: side b": "Trójkąt: bok b",
+      "Triangle: side c": "Trójkąt: bok c",
+      "Rectangle: width": "Prostokąt: szerokość",
+      "Rectangle: depth": "Prostokąt: głębokość",
+      "Trapezoid: bottom width": "Trapez: dolna podstawa",
+      "Trapezoid: top width": "Trapez: górna podstawa",
+      "Trapezoid: height": "Trapez: wysokość",
+      "Polygon: number of sides (8 or more)": "Wielokąt: liczba boków (od 8)",
+      "Polygon: side length": "Wielokąt: długość boku",
+      "Glue tab width": "Szerokość zakładki do klejenia",
+      "Dash of the fold lines": "Kreska linii zgięcia",
+      "Gap of the fold lines": "Przerwa linii zgięcia",
+      "Space between the pieces": "Odstęp między elementami",
+      "Layer of the outline": "Warstwa obrysu",
+      "Layer of the folds": "Warstwa zgięć",
+      "The three sides do not make a triangle": "Te trzy boki nie tworzą trójkąta",
+      "A pyramid stands on a triangle or a rectangle only: a prism is made": "Ostrosłup może stać tylko na trójkącie lub prostokącie: powstaje graniastosłup",
+      "The pyramid is so flat that its closing tab may lie on the first side": "Ostrosłup jest tak płaski, że zakładka zamykająca może nachodzić na pierwszą ścianę",
+      "Box nets": "Siatki pudełek",
+      "The net of a box to cut out of paper or card: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle.": "Siatka pudełka do wycięcia z papieru lub kartonu: obrys linią ciągłą, zgięcia przerywaną, z zakładkami do klejenia. Graniastosłup lub graniastosłup ścięty (góra skośna do 25 %) na trójkącie, prostokącie, trapezie lub wielokącie foremnym (od 8 boków) albo ostrosłup na trójkącie lub prostokącie."
+    }
+  }
+}

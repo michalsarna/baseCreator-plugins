@@ -1,4 +1,6 @@
 # Changelog
+## 0.2.1
+* Marked as a work in progress: the 3D view is still being worked on.
 ## 0.2.0
 * A 3D view of the model in the import window: turn it with the mouse or pick a view (top, bottom, front, back, left, right), and the outlines are the shadow, the chosen planes or the slice of the model seen that way, ready to be put in the program. Needs baseCreator 1.10.0.
 * The window of the import can be resized: the form and the previews follow it.

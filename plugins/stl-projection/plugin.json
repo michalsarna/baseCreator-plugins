@@ -1,8 +1,8 @@
 {
   "format": 1,
   "id": "stl-projection",
-  "name": "STL projection",
-  "version": "0.2.0",
+  "name": "STL projection (work in progress)",
+  "version": "0.2.1",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
   "description": "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.",
@@ -38,7 +38,8 @@
       "sideways": "na boki",
       "Smallest plane": "Najmniejsza płaszczyzna",
       "Planes: tick the ones to project": "Płaszczyzny: zaznacz te do rzutowania",
-      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "Model jest pokazany w 3D: obracasz go myszą lub wybierasz widok, a kontury są takie, jak model wygląda z tej strony; bez obrotu — z góry (oś Z w górę). Kontury zachowują swoje miejsce w obrysie widoku, którego lewy górny róg jest w punkcie (0, 0)."
+      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "Model jest pokazany w 3D: obracasz go myszą lub wybierasz widok, a kontury są takie, jak model wygląda z tej strony; bez obrotu — z góry (oś Z w górę). Kontury zachowują swoje miejsce w obrysie widoku, którego lewy górny róg jest w punkcie (0, 0).",
+      "STL projection (work in progress)": "Rzut STL (w trakcie prac)"
     }
   }
 }

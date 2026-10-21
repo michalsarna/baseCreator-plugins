@@ -1,4 +1,6 @@
 # Changelog
+## 2.2.0
+* A cone and a truncated cone: a pyramid (and the new Truncated pyramid, the top a share t of the base) on a circle or an ellipse. The wall is a fan (a ring of it for the truncated one) developed from the rim; the bottom, and the top, are joined to the middle of its arc by a short chord (one piece), with a ring of glue tabs; one tab closes the wall. Four new pictures. A truncated pyramid on a polygon makes a pyramid (with a warning).
 ## 2.1.0
 * A cylinder: a prism on a circle or an ellipse (the new bases Circle and Ellipse), straight or cut slantways (Truncated prism, the top rises towards the back along the semi-axis b). The wall is a strip as long as the rim; the bottom and the top are joined to it in the middle by a short chord (one piece), each with a ring of glue tabs. Pictures with r, or a and b.
 

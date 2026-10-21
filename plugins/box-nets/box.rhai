@@ -1,4 +1,4 @@
-// The net of a box (a prism, a pyramid, a truncated prism, a cylinder on a circle or an ellipse, straight or cut slantways) for cutting out of paper or card and folding by hand.
+// The net of a box (a prism, a pyramid, a truncated prism; on a circle or an ellipse a cylinder, straight or cut slantways, a cone, a truncated cone) for cutting out of paper or card and folding by hand.
 //
 // The net is ONE piece when the shape allows it: the sides are a strip (a fan for a pyramid), and the bottom and the top are
 // folded on to it along one of their edges, so there is a single outline to cut (a continuous line) and the folds are dashed
@@ -301,11 +301,44 @@ fn rim(x0, y0, sg, ra, rb, phi) {
     [x0 + ra * cos(phi), y0 + sg * rb * sin(phi)]
 }
 
-// A disc (the bottom or the top of a cylinder) joined to the wall by a chord: the outline from one end of the chord round the
+fn no_wall() {
+    #{ a: [], r: [], inside: false }
+}
+
+// Is the point c clear of the arc of a wall round the apex at (0, 0)? wall.a: the angles from the middle ray (along Y), wall.r: the
+// distance of the arc from the apex at those angles; the point must lie beyond the arc (wall.inside: within it); outside the angles
+// of the wall (the gap of the fan) it is always clear.
+fn wall_clear(wall, c) {
+    let na = wall.a.len();
+    if na == 0 {
+        return true;
+    }
+    let rr = sqrt(c[0] * c[0] + c[1] * c[1]);
+    if rr < 0.000001 {
+        return wall.inside;
+    }
+    let cs = c[1] / rr;
+    if cs > 1.0 { cs = 1.0; }
+    if cs < -1.0 { cs = -1.0; }
+    let aa = acos(cs);
+    if aa > wall.a[na - 1] + 0.01 {
+        return true;
+    }
+    let j = 1;
+    while j < na - 1 && wall.a[j] < aa {
+        j += 1;
+    }
+    let l = wall.a[j] - wall.a[j - 1];
+    let f = if l > 0.0 { (aa - wall.a[j - 1]) / l } else { 0.0 };
+    let rw = wall.r[j - 1] + (wall.r[j] - wall.r[j - 1]) * f;
+    if wall.inside { rr < rw - 0.5 } else { rr > rw + 0.5 }
+}
+
+// A disc (the bottom or the top of a cylinder or a cone) joined to the wall by a chord: the outline from one end of the chord round the
 // disc to the other (first point included), with a ring of glue tabs, and the folds of the tabs. phs / dir: the angle of the
 // first end and the way round; the arc covers pi + 2 * phi0. yline: the line of the chord (no tab may cross it, the wall is
-// beyond it).
-fn disc(x0, y0, sg, ra, rb, phi0, phs, dir, yline, d, cf) {
+// beyond it). wall: the arc of the wall near the disc (see wall_clear), no_wall() for none.
+fn disc(x0, y0, sg, ra, rb, phi0, phs, dir, yline, d, cf, wall) {
     let span = PI() + 2.0 * phi0;
     let pts = [rim(x0, y0, sg, ra, rb, phs)];
     let folds = [];
@@ -334,7 +367,7 @@ fn disc(x0, y0, sg, ra, rb, phi0, phs, dir, yline, d, cf) {
         let tb = tab(p, q, [x0, y0], d, cf);
         let ok = true;
         for c in tb.cut {
-            if (yline - c[1]) * sg < 0.3 {
+            if (yline - c[1]) * sg < 0.3 || !wall_clear(wall, c) {
                 ok = false;
             }
         }
@@ -384,9 +417,6 @@ fn cylinder_net(p) {
         ra = p.ell_a;
         rb = p.ell_b;
     }
-    if p.solid == "Pyramid" {
-        warn("A pyramid stands on a triangle or a rectangle only: a prism is made");
-    }
     let h = p.height;
     let d = p.tab;
     let t = if p.solid == "Truncated prism" { p.slant / 100.0 } else { 0.0 };
@@ -415,7 +445,7 @@ fn cylinder_net(p) {
 
     let folds = [];
     let pts = [[0.0, 0.0]];
-    let bottom = disc(x0, rb * sin(phi0), -1.0, ra, rb, phi0, PI() - phi0, 1.0, 0.0, dt, 0.7);
+    let bottom = disc(x0, rb * sin(phi0), -1.0, ra, rb, phi0, PI() - phi0, 1.0, 0.0, dt, 0.7, no_wall());
     pts.append(bottom.pts);
     folds.append(bottom.folds);
     folds.push([[x0 - u, 0.0], [x0 + u, 0.0]]);
@@ -436,7 +466,7 @@ fn cylinder_net(p) {
         }
     }
     let ytop = rb * stretch * sin(phi0);
-    let top = disc(x0, -z1 - ytop, 1.0, ra, rb * stretch, phi0, phi0, -1.0, -z1, dt, 0.7);
+    let top = disc(x0, -z1 - ytop, 1.0, ra, rb * stretch, phi0, phi0, -1.0, -z1, dt, 0.7, no_wall());
     pts.append(top.pts);
     folds.append(top.folds);
     folds.push([[x0 - u, -z1], [x0 + u, -z1]]);
@@ -452,9 +482,127 @@ fn cylinder_net(p) {
     #{ pts: pts, folds: folds }
 }
 
+// The net of a cone or a truncated cone on a circle or an ellipse: the wall is a fan round the apex (a ring of it for a truncated
+// one; the top is the base scaled by `top`), the generators of the wall and their angles come from the rim in small steps, like the
+// sides of a pyramid with very many. The bottom (and the top) is joined to the middle of the arc of the wall by a short chord, with a
+// ring of glue tabs; one tab closes the wall.
+fn cone_net(p) {
+    let ra = 0.0;
+    let rb = 0.0;
+    if p.base == "Circle" {
+        ra = p.circ_r;
+        rb = p.circ_r;
+    } else {
+        ra = p.ell_a;
+        rb = p.ell_b;
+    }
+    let k = if p.solid == "Truncated pyramid" { p.top / 100.0 } else { 0.0 };
+    let d = p.tab;
+    // The height of the whole cone, with the part cut off.
+    let hh = p.height / (1.0 - k);
+
+    // The rim from the vertex (-a, 0) round to itself; the middle of the fan is the vertex (a, 0).
+    let m = 288;
+    let mid = m / 2;
+    let qs = [];
+    let bs = [];
+    for i in 0..(m + 1) {
+        let th = PI() + 2.0 * PI() * i.to_float() / m.to_float();
+        let x = ra * cos(th);
+        let y = rb * sin(th);
+        qs.push([x, y]);
+        bs.push(sqrt(x * x + y * y + hh * hh));
+    }
+    let psi = [0.0];
+    for i in 0..m {
+        let l = dist(qs[i], qs[i + 1]);
+        let c = (bs[i] * bs[i] + bs[i + 1] * bs[i + 1] - l * l) / (2.0 * bs[i] * bs[i + 1]);
+        if c > 1.0 { c = 1.0; }
+        if c < -1.0 { c = -1.0; }
+        psi.push(psi[i] + acos(c));
+    }
+    let pm = psi[mid];
+    // The outer arc with the middle ray along Y (the apex at (0, 0)).
+    let outer = [];
+    for i in 0..(m + 1) {
+        let a = psi[i] - pm;
+        outer.push([bs[i] * sin(a), bs[i] * cos(a)]);
+    }
+    let aw = [];
+    let rw = [];
+    let rt = [];
+    for j in 0..(mid + 1) {
+        aw.push(psi[mid + j] - pm);
+        rw.push(bs[mid + j]);
+        rt.push(k * bs[mid + j]);
+    }
+
+    // The discs lie along the vertex (a, 0), where the rim runs along the axis b: that axis is the chord side of the disc.
+    let la = rb;
+    let lb = ra;
+    // The chord: between the points of the arc 2u apart, symmetric about the middle ray.
+    let u0 = min(0.3 * la, 20.0);
+    let j = 1;
+    while j < mid - 2 && outer[mid + j][0] < u0 {
+        j += 1;
+    }
+    let ilo = mid - j;
+    let ihi = mid + j;
+    let u = outer[ihi][0];
+    let sc = outer[ihi][1];
+    let phi0 = acos(min(u / la, 0.99));
+
+    let folds = [];
+    let pts = [[k * outer[0][0], k * outer[0][1]]];
+    for i in 0..ilo {
+        pts.push(outer[i]);
+    }
+    let dt = min(d, 0.6 * min(la, lb));
+    let bottom = disc(0.0, sc + lb * sin(phi0), -1.0, la, lb, phi0, PI() - phi0, 1.0, sc, dt, 0.7, #{ a: aw, r: rw, inside: false });
+    pts.append(bottom.pts);
+    folds.append(bottom.folds);
+    folds.push([[-u, sc], [u, sc]]);
+    for i in (ihi + 1)..(m + 1) {
+        pts.push(outer[i]);
+    }
+
+    // The tab that closes the wall, on the straight edge at the end of the fan.
+    let ein = [k * outer[m][0], k * outer[m][1]];
+    let inside = [(1.0 + k) / 2.0 * outer[m - 10][0], (1.0 + k) / 2.0 * outer[m - 10][1]];
+    let closing = tab(outer[m], ein, inside, d, 0.7);
+    let last = closing.cut.len();
+    if k < 0.0000001 {
+        last -= 1;
+    }
+    for i in 1..last {
+        pts.push(closing.cut[i]);
+    }
+    folds.push(closing.fold);
+
+    if k > 0.0000001 {
+        // The inner arc back, with the top.
+        for r in 1..(m - ihi) {
+            let i = m - r;
+            pts.push([k * outer[i][0], k * outer[i][1]]);
+        }
+        let la2 = k * la;
+        let lb2 = k * lb;
+        let dt2 = min(d, 0.6 * min(la2, lb2));
+        let top = disc(0.0, k * sc - lb2 * sin(phi0), 1.0, la2, lb2, phi0, phi0, -1.0, k * sc, dt2, 0.7, #{ a: aw, r: rt, inside: true });
+        pts.append(top.pts);
+        folds.append(top.folds);
+        folds.push([[-k * u, k * sc], [k * u, k * sc]]);
+        for r in 1..ilo {
+            let i = ilo - r;
+            pts.push([k * outer[i][0], k * outer[i][1]]);
+        }
+    }
+    #{ pts: pts, folds: folds }
+}
+
 fn generate(p, ctx) {
     if p.base == "Circle" || p.base == "Ellipse" {
-        let net = cylinder_net(p);
+        let net = if p.solid == "Pyramid" || p.solid == "Truncated pyramid" { cone_net(p) } else { cylinder_net(p) };
         return finish(net, [], p, ctx);
     }
     let pts = base_polygon(p);
@@ -464,6 +612,10 @@ fn generate(p, ctx) {
     let n = pts.len();
     let kind = p.base;
     let solid = p.solid;
+    if solid == "Truncated pyramid" {
+        warn("A truncated pyramid stands on a circle or an ellipse only: a pyramid is made");
+        solid = "Pyramid";
+    }
     if solid == "Pyramid" && kind != "Triangle" && kind != "Rectangle" {
         warn("A pyramid stands on a triangle or a rectangle only: a prism is made");
         solid = "Prism";

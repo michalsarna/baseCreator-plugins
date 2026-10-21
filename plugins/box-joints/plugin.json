@@ -1,0 +1,569 @@
+{
+  "format": 1,
+  "id": "box-joints",
+  "name": "Box with joints",
+  "version": "1.0.0",
+  "min_base": "1.12.0",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "description": "A box to cut out of plywood, acrylic or card with a laser and put together without glue: every face is a separate piece and the edges have fingers and notches that fit into each other, made for the thickness of your material (the sizes are the outer sizes of the box). A prism or a truncated prism on a triangle, rectangle, trapezoid or regular polygon, or a pyramid on a triangle or rectangle; on a circle or an ellipse a cylinder (straight or cut slantways), a cone or a truncated cone, with the wall closed by a comb. The picture shows which length is which.",
+  "programs": [
+    "lightcreator"
+  ],
+  "generators": [
+    {
+      "id": "box-joints",
+      "name": "Box with joints",
+      "description": "A box to cut out of plywood, acrylic or card with a laser and put together without glue: every face is a separate piece and the edges have fingers and notches that fit into each other, made for the thickness of your material (the sizes are the outer sizes of the box). A prism or a truncated prism on a triangle, rectangle, trapezoid or regular polygon, or a pyramid on a triangle or rectangle; on a circle or an ellipse a cylinder (straight or cut slantways), a cone or a truncated cone, with the wall closed by a comb. The picture shows which length is which.",
+      "script": "box.rhai",
+      "params": [
+        {
+          "id": "base",
+          "label": "Base",
+          "kind": "choice",
+          "default": "Rectangle",
+          "options": [
+            "Triangle",
+            "Rectangle",
+            "Trapezoid",
+            "Regular polygon",
+            "Circle",
+            "Ellipse"
+          ]
+        },
+        {
+          "id": "solid",
+          "label": "Solid (on a circle or an ellipse: a prism is a cylinder, a pyramid a cone; a pyramid on a polygon: triangle or rectangle only)",
+          "kind": "choice",
+          "default": "Prism",
+          "options": [
+            "Prism",
+            "Pyramid",
+            "Truncated prism",
+            "Truncated pyramid"
+          ]
+        },
+        {
+          "id": "height",
+          "label": "Height h",
+          "kind": "number",
+          "default": 30,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "slant",
+          "label": "Slant k of the top (truncated prism)",
+          "kind": "number",
+          "default": 15,
+          "min": 0,
+          "max": 25,
+          "unit": "%",
+          "show": {
+            "solid": [
+              "Truncated prism"
+            ]
+          }
+        },
+        {
+          "id": "top",
+          "label": "Top size t (truncated pyramid, on a circle or an ellipse)",
+          "kind": "number",
+          "default": 50,
+          "min": 5,
+          "max": 95,
+          "unit": "%",
+          "show": {
+            "solid": [
+              "Truncated pyramid"
+            ],
+            "base": [
+              "Circle",
+              "Ellipse"
+            ]
+          }
+        },
+        {
+          "id": "tri_a",
+          "label": "Triangle: side a",
+          "kind": "number",
+          "default": 50,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Triangle"
+            ]
+          }
+        },
+        {
+          "id": "tri_b",
+          "label": "Triangle: side b",
+          "kind": "number",
+          "default": 50,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Triangle"
+            ]
+          }
+        },
+        {
+          "id": "tri_c",
+          "label": "Triangle: side c",
+          "kind": "number",
+          "default": 50,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Triangle"
+            ]
+          }
+        },
+        {
+          "id": "rect_w",
+          "label": "Rectangle: width w",
+          "kind": "number",
+          "default": 60,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Rectangle"
+            ]
+          }
+        },
+        {
+          "id": "rect_d",
+          "label": "Rectangle: depth d",
+          "kind": "number",
+          "default": 40,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Rectangle"
+            ]
+          }
+        },
+        {
+          "id": "trap_a",
+          "label": "Trapezoid: bottom base a",
+          "kind": "number",
+          "default": 60,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Trapezoid"
+            ]
+          }
+        },
+        {
+          "id": "trap_b",
+          "label": "Trapezoid: top base b",
+          "kind": "number",
+          "default": 30,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Trapezoid"
+            ]
+          }
+        },
+        {
+          "id": "trap_d",
+          "label": "Trapezoid: depth d",
+          "kind": "number",
+          "default": 40,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Trapezoid"
+            ]
+          }
+        },
+        {
+          "id": "poly_n",
+          "label": "Polygon: number of sides n (8 or more)",
+          "kind": "number",
+          "default": 8,
+          "min": 8,
+          "max": 60,
+          "show": {
+            "base": [
+              "Regular polygon"
+            ]
+          }
+        },
+        {
+          "id": "poly_side",
+          "label": "Polygon: side length s",
+          "kind": "number",
+          "default": 25,
+          "min": 1,
+          "max": 1000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Regular polygon"
+            ]
+          }
+        },
+        {
+          "id": "circ_r",
+          "label": "Circle: radius r",
+          "kind": "number",
+          "default": 25,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Circle"
+            ]
+          }
+        },
+        {
+          "id": "ell_a",
+          "label": "Ellipse: semi-axis a",
+          "kind": "number",
+          "default": 35,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Ellipse"
+            ]
+          }
+        },
+        {
+          "id": "ell_b",
+          "label": "Ellipse: semi-axis b",
+          "kind": "number",
+          "default": 20,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Ellipse"
+            ]
+          }
+        },
+        {
+          "id": "thickness",
+          "label": "Material thickness",
+          "kind": "number",
+          "default": 3,
+          "min": 0.3,
+          "max": 20,
+          "unit": "mm"
+        },
+        {
+          "id": "finger",
+          "label": "Finger width",
+          "kind": "number",
+          "default": 10,
+          "min": 3,
+          "max": 100,
+          "unit": "mm"
+        },
+        {
+          "id": "kerf",
+          "label": "Kerf (the cut removes this much; the fingers get wider by it)",
+          "kind": "number",
+          "default": 0.1,
+          "min": 0,
+          "max": 1,
+          "unit": "mm"
+        },
+        {
+          "id": "lid",
+          "label": "Lid",
+          "kind": "choice",
+          "default": "Yes",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "id": "comb",
+          "label": "Comb that closes the wall of a round shape",
+          "kind": "number",
+          "default": 6,
+          "min": 2,
+          "max": 30,
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Circle",
+              "Ellipse"
+            ]
+          }
+        },
+        {
+          "id": "space",
+          "label": "Space between the pieces",
+          "kind": "number",
+          "default": 5,
+          "min": 1,
+          "max": 100,
+          "unit": "mm"
+        },
+        {
+          "id": "cut_layer",
+          "label": "Layer of the cut",
+          "kind": "number",
+          "default": 0,
+          "min": 0,
+          "max": 15
+        }
+      ],
+      "figures": [
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Prism"
+          },
+          "file": "figures/triangle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Pyramid"
+          },
+          "file": "figures/triangle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/triangle-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Prism"
+          },
+          "file": "figures/rectangle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Pyramid"
+          },
+          "file": "figures/rectangle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/rectangle-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Prism"
+          },
+          "file": "figures/trapezoid-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/trapezoid-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Prism"
+          },
+          "file": "figures/regular-polygon-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/regular-polygon-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Pyramid"
+          },
+          "file": "figures/trapezoid-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Pyramid"
+          },
+          "file": "figures/regular-polygon-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Prism"
+          },
+          "file": "figures/circle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/circle-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Prism"
+          },
+          "file": "figures/ellipse-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/ellipse-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Pyramid"
+          },
+          "file": "figures/circle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Truncated pyramid"
+          },
+          "file": "figures/circle-truncated-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Pyramid"
+          },
+          "file": "figures/ellipse-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Truncated pyramid"
+          },
+          "file": "figures/ellipse-truncated-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Truncated pyramid"
+          },
+          "file": "figures/triangle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Truncated pyramid"
+          },
+          "file": "figures/rectangle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Truncated pyramid"
+          },
+          "file": "figures/trapezoid-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Truncated pyramid"
+          },
+          "file": "figures/regular-polygon-prism.svg"
+        }
+      ]
+    }
+  ],
+  "texts": {
+    "pl": {
+      "Box net": "Siatka pudełka",
+      "Base": "Podstawa",
+      "Triangle": "Trójkąt",
+      "Rectangle": "Prostokąt",
+      "Trapezoid": "Trapez",
+      "Regular polygon": "Wielokąt foremny",
+      "Prism": "Graniastosłup",
+      "Pyramid": "Ostrosłup",
+      "Truncated prism": "Graniastosłup ścięty",
+      "Triangle: side a": "Trójkąt: bok a",
+      "Triangle: side b": "Trójkąt: bok b",
+      "Triangle: side c": "Trójkąt: bok c",
+      "Glue tab width": "Szerokość zakładki do klejenia",
+      "Dash of the fold lines": "Kreska linii zgięcia",
+      "Gap of the fold lines": "Przerwa linii zgięcia",
+      "Layer of the outline": "Warstwa obrysu",
+      "Layer of the folds": "Warstwa zgięć",
+      "The three sides do not make a triangle": "Te trzy boki nie tworzą trójkąta",
+      "A pyramid stands on a triangle or a rectangle only: a prism is made": "Ostrosłup może stać tylko na trójkącie lub prostokącie: powstaje graniastosłup",
+      "Box nets": "Siatki pudełek",
+      "Height h": "Wysokość h",
+      "Slant k of the top (truncated prism)": "Skos k góry (graniastosłup ścięty)",
+      "Rectangle: width w": "Prostokąt: szerokość w",
+      "Rectangle: depth d": "Prostokąt: głębokość d",
+      "Trapezoid: bottom base a": "Trapez: dolna podstawa a",
+      "Trapezoid: top base b": "Trapez: górna podstawa b",
+      "Trapezoid: depth d": "Trapez: wysokość trapezu d",
+      "Polygon: number of sides n (8 or more)": "Wielokąt: liczba boków n (od 8)",
+      "Polygon: side length s": "Wielokąt: długość boku s",
+      "Space between separate pieces": "Odstęp między osobnymi elementami",
+      "The base could not be folded on to the sides without overlaps: it is a separate piece": "Podstawy nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
+      "The bottom could not be folded on to the sides without overlaps: it is a separate piece": "Spodu nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
+      "The top could not be folded on to the sides without overlaps: it is a separate piece": "Góry nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
+      "The outline of the net crosses itself (the shape is too flat or too sharp to unfold in one piece)": "Obrys siatki przecina się sam (bryła jest zbyt płaska lub zbyt ostra, by rozłożyć ją w jednym kawałku)",
+      "Circle": "Koło",
+      "Ellipse": "Elipsa",
+      "Circle: radius r": "Koło: promień r",
+      "Ellipse: semi-axis a": "Elipsa: półoś a",
+      "Ellipse: semi-axis b": "Elipsa: półoś b",
+      "Solid (on a circle or an ellipse: a prism is a cylinder, a pyramid a cone; a pyramid on a polygon: triangle or rectangle only)": "Bryła (na kole lub elipsie: graniastosłup to walec, ostrosłup to stożek; ostrosłup na wielokącie: tylko trójkąt lub prostokąt)",
+      "Truncated pyramid": "Ostrosłup ścięty",
+      "Top size t (truncated pyramid, on a circle or an ellipse)": "Rozmiar góry t (ostrosłup ścięty, na kole lub elipsie)",
+      "A truncated pyramid stands on a circle or an ellipse only: a pyramid is made": "Ostrosłup ścięty może stać tylko na kole lub elipsie: powstaje ostrosłup",
+      "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle; on a circle or an ellipse the prism is a cylinder, the truncated one a cylinder cut slantways, the pyramid a cone and the truncated pyramid a truncated cone. The picture shows which length is which.": "Siatka pudełka do wycięcia z papieru lub kartonu, w jednym kawałku, gdy kształt na to pozwala: obrys linią ciągłą, zgięcia przerywaną, z zakładkami do klejenia. Graniastosłup lub graniastosłup ścięty (góra skośna do 25 %) na trójkącie, prostokącie, trapezie lub wielokącie foremnym (od 8 boków) albo ostrosłup na trójkącie lub prostokącie; na kole lub elipsie graniastosłup jest walcem, ścięty walcem ściętym skośnie, ostrosłup stożkiem, a ostrosłup ścięty stożkiem ściętym. Rysunek pokazuje, która długość jest która.",
+      "Box with joints": "Pudełko z zamkami",
+      "Material thickness": "Grubość materiału",
+      "Finger width": "Szerokość pióra",
+      "Kerf (the cut removes this much; the fingers get wider by it)": "Szerokość cięcia (tyle usuwa laser; pióra są o tyle szersze)",
+      "Lid": "Wieczko",
+      "Yes": "Tak",
+      "No": "Nie",
+      "Comb that closes the wall of a round shape": "Grzebień zamykający ścianę kształtu okrągłego",
+      "Space between the pieces": "Odstęp między elementami",
+      "Layer of the cut": "Warstwa cięcia",
+      "A box to cut out of plywood, acrylic or card with a laser and put together without glue: every face is a separate piece and the edges have fingers and notches that fit into each other, made for the thickness of your material (the sizes are the outer sizes of the box). A prism or a truncated prism on a triangle, rectangle, trapezoid or regular polygon, or a pyramid on a triangle or rectangle; on a circle or an ellipse a cylinder (straight or cut slantways), a cone or a truncated cone, with the wall closed by a comb. The picture shows which length is which.": "Pudełko do wycięcia laserem z dykty, pleksi lub kartonu i złożenia bez kleju: każda ściana to osobny element, a krawędzie mają pióra i wpusty, które wchodzą jedne w drugie, policzone dla grubości Twojego materiału (wymiary są zewnętrzne). Graniastosłup lub graniastosłup ścięty na trójkącie, prostokącie, trapezie albo wielokącie foremnym, ostrosłup na trójkącie lub prostokącie; na kole i elipsie walec (prosty lub ścięty ukośnie), stożek i stożek ścięty, ze ścianą zamkniętą grzebieniem. Rysunek pokazuje, który wymiar jest który."
+    }
+  }
+}

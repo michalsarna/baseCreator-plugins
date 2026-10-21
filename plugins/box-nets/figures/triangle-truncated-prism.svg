@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="280" viewBox="0 0 480 280" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="62.8,218.5 199.8,218.5" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="62.8,134.2 199.8,134.2" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="62.8,218.5 62.8,134.2" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="199.8,218.5 219.4,174.4" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="199.8,134.2 219.4,61.5" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="199.8,218.5 199.8,134.2" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="219.4,174.4 62.8,218.5" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.55"/>
+<polyline points="219.4,61.5 62.8,134.2" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="219.4,174.4 219.4,61.5" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="62.8,218.5 36.5,218.5" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="62.8,134.2 36.5,134.2" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="40.2,218.5 40.2,134.2" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="40.2,218.5 42.6,211.8" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="40.2,218.5 37.8,211.8" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="40.2,134.2 42.6,141.0" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="40.2,134.2 37.8,141.0" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="22.0,168.1 22.0,184.7" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="22.0,176.9 23.7,174.2 26.4,173.6 28.9,174.7 30.3,177.5 30.3,184.7" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="62.8,134.2 219.4,90.1" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="219.4,90.1 250.2,90.1" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="219.4,61.5 250.2,61.5" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="246.5,90.1 246.5,61.5" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="246.5,90.1 248.9,83.4" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="246.5,90.1 244.0,83.4" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="246.5,61.5 248.9,68.2" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="246.5,61.5 244.0,68.2" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="256.4,67.5 256.4,84.1" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="264.7,73.0 256.4,79.1" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="259.1,76.9 264.7,84.1" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="318.8,178.4 436.2,178.4 404.6,101.6 318.8,178.4" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="318.8,178.4 318.8,198.7" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="436.2,178.4 436.2,198.7" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="318.8,195.0 436.2,195.0" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="318.8,195.0 325.6,197.4" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="318.8,195.0 325.6,192.6" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="436.2,195.0 429.5,197.4" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="436.2,195.0 429.5,192.6" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="380.9,203.6 379.6,202.2 377.1,202.0 375.0,203.3 374.1,206.5 375.0,209.7 377.1,211.0 379.6,210.8 380.9,209.4" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="436.2,178.4 458.0,182.0" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="404.6,101.6 426.4,105.3" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="454.3,181.4 422.7,104.7" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="454.3,181.4 453.9,174.2" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="454.3,181.4 449.5,176.1" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="422.7,104.7 427.5,110.0" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="422.7,104.7 423.0,111.8" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="453.2,140.4 453.2,149.5" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="453.2,142.2 451.9,140.6 449.4,140.4 447.4,141.8 446.5,144.9 447.4,148.1 449.4,149.5 451.9,149.2 453.2,147.6" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="404.6,101.6 388.1,88.8" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="318.8,178.4 302.3,165.6" stroke="accentColor" stroke-width="0.9" opacity="0.8"/>
+<polyline points="391.1,91.1 305.3,167.9" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="391.1,91.1 384.4,93.8" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="391.1,91.1 387.6,97.4" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="305.3,167.9 308.7,161.6" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="305.3,167.9 311.9,165.2" stroke="accentColor" stroke-width="1.5"/>
+<polyline points="335.7,115.7 335.7,129.2" stroke="accentColor" stroke-width="2.2"/>
+<polyline points="335.7,127.4 337.0,129.0 339.5,129.2 341.6,127.8 342.5,124.7 341.6,121.5 339.5,120.2 337.0,120.4 335.7,122.0" stroke="accentColor" stroke-width="2.2"/>
+</svg>

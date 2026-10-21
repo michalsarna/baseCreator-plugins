@@ -2,11 +2,11 @@
   "format": 1,
   "id": "box-nets",
   "name": "Box nets",
-  "version": "1.0.0",
-  "min_base": "0.9.8",
+  "version": "2.0.0",
+  "min_base": "1.11.0",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
-  "description": "The net of a box to cut out of paper or card: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle.",
+  "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle. The picture shows which length is which.",
   "programs": [
     "pencreator"
   ],
@@ -14,7 +14,7 @@
     {
       "id": "box-net",
       "name": "Box net",
-      "description": "The net of a box to cut out of paper or card: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle.",
+      "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle. The picture shows which length is which.",
       "script": "box.rhai",
       "params": [
         {
@@ -42,7 +42,7 @@
         },
         {
           "id": "height",
-          "label": "Height",
+          "label": "Height h",
           "kind": "number",
           "default": 30,
           "min": 1,
@@ -51,7 +51,7 @@
         },
         {
           "id": "slant",
-          "label": "Slant of the top (truncated prism)",
+          "label": "Slant k of the top (truncated prism)",
           "kind": "number",
           "default": 15,
           "min": 0,
@@ -87,7 +87,7 @@
         },
         {
           "id": "rect_w",
-          "label": "Rectangle: width",
+          "label": "Rectangle: width w",
           "kind": "number",
           "default": 60,
           "min": 1,
@@ -96,7 +96,7 @@
         },
         {
           "id": "rect_d",
-          "label": "Rectangle: depth",
+          "label": "Rectangle: depth d",
           "kind": "number",
           "default": 40,
           "min": 1,
@@ -105,7 +105,7 @@
         },
         {
           "id": "trap_a",
-          "label": "Trapezoid: bottom width",
+          "label": "Trapezoid: bottom base a",
           "kind": "number",
           "default": 60,
           "min": 1,
@@ -114,7 +114,7 @@
         },
         {
           "id": "trap_b",
-          "label": "Trapezoid: top width",
+          "label": "Trapezoid: top base b",
           "kind": "number",
           "default": 30,
           "min": 1,
@@ -123,7 +123,7 @@
         },
         {
           "id": "trap_d",
-          "label": "Trapezoid: height",
+          "label": "Trapezoid: depth d",
           "kind": "number",
           "default": 40,
           "min": 1,
@@ -132,7 +132,7 @@
         },
         {
           "id": "poly_n",
-          "label": "Polygon: number of sides (8 or more)",
+          "label": "Polygon: number of sides n (8 or more)",
           "kind": "number",
           "default": 8,
           "min": 8,
@@ -140,7 +140,7 @@
         },
         {
           "id": "poly_side",
-          "label": "Polygon: side length",
+          "label": "Polygon: side length s",
           "kind": "number",
           "default": 25,
           "min": 1,
@@ -176,7 +176,7 @@
         },
         {
           "id": "space",
-          "label": "Space between the pieces",
+          "label": "Space between separate pieces",
           "kind": "number",
           "default": 10,
           "min": 1,
@@ -199,6 +199,92 @@
           "min": 0,
           "max": 15
         }
+      ],
+      "figures": [
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Prism"
+          },
+          "file": "figures/triangle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Pyramid"
+          },
+          "file": "figures/triangle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Triangle",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/triangle-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Prism"
+          },
+          "file": "figures/rectangle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Pyramid"
+          },
+          "file": "figures/rectangle-pyramid.svg"
+        },
+        {
+          "when": {
+            "base": "Rectangle",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/rectangle-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Prism"
+          },
+          "file": "figures/trapezoid-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/trapezoid-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Prism"
+          },
+          "file": "figures/regular-polygon-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/regular-polygon-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Trapezoid",
+            "solid": "Pyramid"
+          },
+          "file": "figures/trapezoid-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Regular polygon",
+            "solid": "Pyramid"
+          },
+          "file": "figures/regular-polygon-prism.svg"
+        }
       ]
     }
   ],
@@ -214,29 +300,32 @@
       "Prism": "Graniastosłup",
       "Pyramid": "Ostrosłup",
       "Truncated prism": "Graniastosłup ścięty",
-      "Height": "Wysokość",
-      "Slant of the top (truncated prism)": "Skos góry (graniastosłup ścięty)",
       "Triangle: side a": "Trójkąt: bok a",
       "Triangle: side b": "Trójkąt: bok b",
       "Triangle: side c": "Trójkąt: bok c",
-      "Rectangle: width": "Prostokąt: szerokość",
-      "Rectangle: depth": "Prostokąt: głębokość",
-      "Trapezoid: bottom width": "Trapez: dolna podstawa",
-      "Trapezoid: top width": "Trapez: górna podstawa",
-      "Trapezoid: height": "Trapez: wysokość",
-      "Polygon: number of sides (8 or more)": "Wielokąt: liczba boków (od 8)",
-      "Polygon: side length": "Wielokąt: długość boku",
       "Glue tab width": "Szerokość zakładki do klejenia",
       "Dash of the fold lines": "Kreska linii zgięcia",
       "Gap of the fold lines": "Przerwa linii zgięcia",
-      "Space between the pieces": "Odstęp między elementami",
       "Layer of the outline": "Warstwa obrysu",
       "Layer of the folds": "Warstwa zgięć",
       "The three sides do not make a triangle": "Te trzy boki nie tworzą trójkąta",
       "A pyramid stands on a triangle or a rectangle only: a prism is made": "Ostrosłup może stać tylko na trójkącie lub prostokącie: powstaje graniastosłup",
-      "The pyramid is so flat that its closing tab may lie on the first side": "Ostrosłup jest tak płaski, że zakładka zamykająca może nachodzić na pierwszą ścianę",
       "Box nets": "Siatki pudełek",
-      "The net of a box to cut out of paper or card: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle.": "Siatka pudełka do wycięcia z papieru lub kartonu: obrys linią ciągłą, zgięcia przerywaną, z zakładkami do klejenia. Graniastosłup lub graniastosłup ścięty (góra skośna do 25 %) na trójkącie, prostokącie, trapezie lub wielokącie foremnym (od 8 boków) albo ostrosłup na trójkącie lub prostokącie."
+      "Height h": "Wysokość h",
+      "Slant k of the top (truncated prism)": "Skos k góry (graniastosłup ścięty)",
+      "Rectangle: width w": "Prostokąt: szerokość w",
+      "Rectangle: depth d": "Prostokąt: głębokość d",
+      "Trapezoid: bottom base a": "Trapez: dolna podstawa a",
+      "Trapezoid: top base b": "Trapez: górna podstawa b",
+      "Trapezoid: depth d": "Trapez: wysokość trapezu d",
+      "Polygon: number of sides n (8 or more)": "Wielokąt: liczba boków n (od 8)",
+      "Polygon: side length s": "Wielokąt: długość boku s",
+      "Space between separate pieces": "Odstęp między osobnymi elementami",
+      "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle. The picture shows which length is which.": "Siatka pudełka do wycięcia z papieru lub kartonu, w jednym kawałku, gdy kształt na to pozwala: obrys linią ciągłą, zgięcia przerywaną, z zakładkami do klejenia. Graniastosłup lub graniastosłup ścięty (góra skośna do 25 %) na trójkącie, prostokącie, trapezie lub wielokącie foremnym (od 8 boków) albo ostrosłup na trójkącie lub prostokącie. Rysunek pokazuje, która długość jest która.",
+      "The base could not be folded on to the sides without overlaps: it is a separate piece": "Podstawy nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
+      "The bottom could not be folded on to the sides without overlaps: it is a separate piece": "Spodu nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
+      "The top could not be folded on to the sides without overlaps: it is a separate piece": "Góry nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
+      "The outline of the net crosses itself (the shape is too flat or too sharp to unfold in one piece)": "Obrys siatki przecina się sam (bryła jest zbyt płaska lub zbyt ostra, by rozłożyć ją w jednym kawałku)"
     }
   }
 }

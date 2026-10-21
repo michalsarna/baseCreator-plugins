@@ -1,4 +1,4 @@
-// The net of a box (a prism, a pyramid, a truncated prism) for cutting out of paper or card and folding by hand.
+// The net of a box (a prism, a pyramid, a truncated prism, a cylinder on a circle or an ellipse, straight or cut slantways) for cutting out of paper or card and folding by hand.
 //
 // The net is ONE piece when the shape allows it: the sides are a strip (a fan for a pyramid), and the bottom and the top are
 // folded on to it along one of their edges, so there is a single outline to cut (a continuous line) and the folds are dashed
@@ -296,7 +296,167 @@ fn box_of(lines) {
     b
 }
 
+// A point of the rim of an ellipse drawn at (x0, y0) with the semi-axes ra, rb; sg: +1 or -1, the way the angle turns on the sheet.
+fn rim(x0, y0, sg, ra, rb, phi) {
+    [x0 + ra * cos(phi), y0 + sg * rb * sin(phi)]
+}
+
+// A disc (the bottom or the top of a cylinder) joined to the wall by a chord: the outline from one end of the chord round the
+// disc to the other (first point included), with a ring of glue tabs, and the folds of the tabs. phs / dir: the angle of the
+// first end and the way round; the arc covers pi + 2 * phi0. yline: the line of the chord (no tab may cross it, the wall is
+// beyond it).
+fn disc(x0, y0, sg, ra, rb, phi0, phs, dir, yline, d, cf) {
+    let span = PI() + 2.0 * phi0;
+    let pts = [rim(x0, y0, sg, ra, rb, phs)];
+    let folds = [];
+    if d < 0.05 {
+        for k in 1..73 {
+            pts.push(rim(x0, y0, sg, ra, rb, phs + dir * span * k.to_float() / 72.0));
+        }
+        return #{ pts: pts, folds: folds };
+    }
+    let est = 0.0;
+    let prev = pts[0];
+    for k in 1..73 {
+        let q = rim(x0, y0, sg, ra, rb, phs + dir * span * k.to_float() / 72.0);
+        est += dist(prev, q);
+        prev = q;
+    }
+    let nt = max(4, (est / (2.4 * d)).round().to_int());
+    let w = 1.0 / nt.to_float();
+    for j in 0..nt {
+        let f0 = j.to_float() * w;
+        let f1 = f0 + w;
+        let fa = f0 + 0.15 * w;
+        let fb = f1 - 0.15 * w;
+        let p = rim(x0, y0, sg, ra, rb, phs + dir * span * fa);
+        let q = rim(x0, y0, sg, ra, rb, phs + dir * span * fb);
+        let tb = tab(p, q, [x0, y0], d, cf);
+        let ok = true;
+        for c in tb.cut {
+            if (yline - c[1]) * sg < 0.3 {
+                ok = false;
+            }
+        }
+        for k in 1..3 {
+            pts.push(rim(x0, y0, sg, ra, rb, phs + dir * span * (f0 + (fa - f0) * k.to_float() / 2.0)));
+        }
+        if ok {
+            pts.push(tb.cut[1]);
+            pts.push(tb.cut[2]);
+            pts.push(q);
+            folds.push(tb.fold);
+        } else {
+            for k in 1..5 {
+                pts.push(rim(x0, y0, sg, ra, rb, phs + dir * span * (fa + (fb - fa) * k.to_float() / 4.0)));
+            }
+        }
+        for k in 1..3 {
+            pts.push(rim(x0, y0, sg, ra, rb, phs + dir * span * (fb + (f1 - fb) * k.to_float() / 2.0)));
+        }
+    }
+    #{ pts: pts, folds: folds }
+}
+
+// The height of the wall at the length x along the strip (the table of lengths ss and heights zs).
+fn z_at(ss, zs, x) {
+    let n = ss.len();
+    for i in 0..(n - 1) {
+        if ss[i + 1] >= x {
+            let l = ss[i + 1] - ss[i];
+            let f = if l > 0.0 { (x - ss[i]) / l } else { 0.0 };
+            return zs[i] + (zs[i + 1] - zs[i]) * f;
+        }
+    }
+    zs[n - 1]
+}
+
+// The net of a cylinder on a circle or an ellipse (ra along X, rb along Y), straight or cut slantways (the top rises towards the
+// back by `slant`): the wall is a strip as long as the rim, and the bottom and the top are joined to it in the middle by a short
+// chord (a disc cannot lie along a straight edge by more than a point), with a ring of glue tabs. One tab closes the wall.
+fn cylinder_net(p) {
+    let ra = 0.0;
+    let rb = 0.0;
+    if p.base == "Circle" {
+        ra = p.circ_r;
+        rb = p.circ_r;
+    } else {
+        ra = p.ell_a;
+        rb = p.ell_b;
+    }
+    if p.solid == "Pyramid" {
+        warn("A pyramid stands on a triangle or a rectangle only: a prism is made");
+    }
+    let h = p.height;
+    let d = p.tab;
+    let t = if p.solid == "Truncated prism" { p.slant / 100.0 } else { 0.0 };
+    let stretch = sqrt(1.0 + t * t);
+    // The tabs round a small disc are no deeper than the disc allows.
+    let dt = min(d, 0.6 * min(ra, rb));
+
+    // The way round the rim from the front (the lowest point of the wall) with the height of the wall there.
+    let m = 288;
+    let ss = [0.0];
+    let zs = [h];
+    let prev = [0.0, -rb];
+    for i in 1..(m + 1) {
+        let th = 1.5 * PI() + 2.0 * PI() * i.to_float() / m.to_float();
+        let q = [ra * cos(th), rb * sin(th)];
+        ss.push(ss[i - 1] + dist(prev, q));
+        zs.push(h + t * (q[1] + rb));
+        prev = q;
+    }
+    let len = ss[m];
+    let x0 = len / 2.0;
+    // The discs join the wall at the back (the highest point of a slanted cut) by a chord 2u long.
+    let u = min(0.3 * ra, 20.0);
+    let z1 = (z_at(ss, zs, x0 - u) + z_at(ss, zs, x0 + u)) / 2.0;
+    let phi0 = acos(u / ra);
+
+    let folds = [];
+    let pts = [[0.0, 0.0]];
+    let bottom = disc(x0, rb * sin(phi0), -1.0, ra, rb, phi0, PI() - phi0, 1.0, 0.0, dt, 0.7);
+    pts.append(bottom.pts);
+    folds.append(bottom.folds);
+    folds.push([[x0 - u, 0.0], [x0 + u, 0.0]]);
+
+    pts.push([len, 0.0]);
+    let closing = tab([len, 0.0], [len, -h], [len - 1.0, -h / 2.0], d, 0.7);
+    for k in 1..closing.cut.len() {
+        pts.push(closing.cut[k]);
+    }
+    folds.push(closing.fold);
+
+    // The top edge back to the start: the curve of the cut up to the disc, the disc, the rest of the curve.
+    let i = m - 1;
+    if t > 0.0000001 {
+        while i > 0 && ss[i] > x0 + u {
+            pts.push([ss[i], -zs[i]]);
+            i -= 1;
+        }
+    }
+    let ytop = rb * stretch * sin(phi0);
+    let top = disc(x0, -z1 - ytop, 1.0, ra, rb * stretch, phi0, phi0, -1.0, -z1, dt, 0.7);
+    pts.append(top.pts);
+    folds.append(top.folds);
+    folds.push([[x0 - u, -z1], [x0 + u, -z1]]);
+    if t > 0.0000001 {
+        while i > 0 {
+            if ss[i] < x0 - u {
+                pts.push([ss[i], -zs[i]]);
+            }
+            i -= 1;
+        }
+    }
+    pts.push([0.0, -h]);
+    #{ pts: pts, folds: folds }
+}
+
 fn generate(p, ctx) {
+    if p.base == "Circle" || p.base == "Ellipse" {
+        let net = cylinder_net(p);
+        return finish(net, [], p, ctx);
+    }
     let pts = base_polygon(p);
     if pts.len() == 0 {
         return [];
@@ -443,6 +603,11 @@ fn generate(p, ctx) {
         }
         net = prism_net(xs, zs, n, kb, qb, tb, kt, qt, tt, d);
     }
+    finish(net, loose, p, ctx)
+}
+
+// The outline of the net and the separate pieces put in the middle of the work area, the folds dashed, all as one group.
+fn finish(net, loose, p, ctx) {
     if !polygon_is_simple(net.pts) {
         warn("The outline of the net crosses itself (the shape is too flat or too sharp to unfold in one piece)");
     }

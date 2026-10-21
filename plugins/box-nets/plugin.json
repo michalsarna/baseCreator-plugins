@@ -2,11 +2,11 @@
   "format": 1,
   "id": "box-nets",
   "name": "Box nets",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "min_base": "1.11.0",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
-  "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle. The picture shows which length is which.",
+  "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle; on a circle or an ellipse the prism is a cylinder, and the truncated one a cylinder cut slantways. The picture shows which length is which.",
   "programs": [
     "pencreator"
   ],
@@ -14,7 +14,7 @@
     {
       "id": "box-net",
       "name": "Box net",
-      "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle. The picture shows which length is which.",
+      "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle; on a circle or an ellipse the prism is a cylinder, and the truncated one a cylinder cut slantways. The picture shows which length is which.",
       "script": "box.rhai",
       "params": [
         {
@@ -26,12 +26,14 @@
             "Triangle",
             "Rectangle",
             "Trapezoid",
-            "Regular polygon"
+            "Regular polygon",
+            "Circle",
+            "Ellipse"
           ]
         },
         {
           "id": "solid",
-          "label": "Solid (a pyramid: triangle or rectangle only)",
+          "label": "Solid (on a circle or an ellipse: a cylinder; a pyramid: triangle or rectangle only)",
           "kind": "choice",
           "default": "Prism",
           "options": [
@@ -145,6 +147,33 @@
           "default": 25,
           "min": 1,
           "max": 1000,
+          "unit": "mm"
+        },
+        {
+          "id": "circ_r",
+          "label": "Circle: radius r",
+          "kind": "number",
+          "default": 25,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "ell_a",
+          "label": "Ellipse: semi-axis a",
+          "kind": "number",
+          "default": 35,
+          "min": 1,
+          "max": 2000,
+          "unit": "mm"
+        },
+        {
+          "id": "ell_b",
+          "label": "Ellipse: semi-axis b",
+          "kind": "number",
+          "default": 20,
+          "min": 1,
+          "max": 2000,
           "unit": "mm"
         },
         {
@@ -284,6 +313,48 @@
             "solid": "Pyramid"
           },
           "file": "figures/regular-polygon-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Prism"
+          },
+          "file": "figures/circle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/circle-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Circle",
+            "solid": "Pyramid"
+          },
+          "file": "figures/circle-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Prism"
+          },
+          "file": "figures/ellipse-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Truncated prism"
+          },
+          "file": "figures/ellipse-truncated-prism.svg"
+        },
+        {
+          "when": {
+            "base": "Ellipse",
+            "solid": "Pyramid"
+          },
+          "file": "figures/ellipse-prism.svg"
         }
       ]
     }
@@ -296,7 +367,6 @@
       "Rectangle": "Prostokąt",
       "Trapezoid": "Trapez",
       "Regular polygon": "Wielokąt foremny",
-      "Solid (a pyramid: triangle or rectangle only)": "Bryła (ostrosłup: tylko trójkąt lub prostokąt)",
       "Prism": "Graniastosłup",
       "Pyramid": "Ostrosłup",
       "Truncated prism": "Graniastosłup ścięty",
@@ -321,11 +391,17 @@
       "Polygon: number of sides n (8 or more)": "Wielokąt: liczba boków n (od 8)",
       "Polygon: side length s": "Wielokąt: długość boku s",
       "Space between separate pieces": "Odstęp między osobnymi elementami",
-      "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle. The picture shows which length is which.": "Siatka pudełka do wycięcia z papieru lub kartonu, w jednym kawałku, gdy kształt na to pozwala: obrys linią ciągłą, zgięcia przerywaną, z zakładkami do klejenia. Graniastosłup lub graniastosłup ścięty (góra skośna do 25 %) na trójkącie, prostokącie, trapezie lub wielokącie foremnym (od 8 boków) albo ostrosłup na trójkącie lub prostokącie. Rysunek pokazuje, która długość jest która.",
       "The base could not be folded on to the sides without overlaps: it is a separate piece": "Podstawy nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
       "The bottom could not be folded on to the sides without overlaps: it is a separate piece": "Spodu nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
       "The top could not be folded on to the sides without overlaps: it is a separate piece": "Góry nie dało się dołączyć do ścian bez nakładania: jest osobnym elementem",
-      "The outline of the net crosses itself (the shape is too flat or too sharp to unfold in one piece)": "Obrys siatki przecina się sam (bryła jest zbyt płaska lub zbyt ostra, by rozłożyć ją w jednym kawałku)"
+      "The outline of the net crosses itself (the shape is too flat or too sharp to unfold in one piece)": "Obrys siatki przecina się sam (bryła jest zbyt płaska lub zbyt ostra, by rozłożyć ją w jednym kawałku)",
+      "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle; on a circle or an ellipse the prism is a cylinder, and the truncated one a cylinder cut slantways. The picture shows which length is which.": "Siatka pudełka do wycięcia z papieru lub kartonu, w jednym kawałku, gdy kształt na to pozwala: obrys linią ciągłą, zgięcia przerywaną, z zakładkami do klejenia. Graniastosłup lub graniastosłup ścięty (góra skośna do 25 %) na trójkącie, prostokącie, trapezie lub wielokącie foremnym (od 8 boków) albo ostrosłup na trójkącie lub prostokącie; na kole lub elipsie graniastosłup jest walcem, a ścięty walcem ściętym skośnie. Rysunek pokazuje, która długość jest która.",
+      "Circle": "Koło",
+      "Ellipse": "Elipsa",
+      "Solid (on a circle or an ellipse: a cylinder; a pyramid: triangle or rectangle only)": "Bryła (na kole lub elipsie: walec; ostrosłup: tylko trójkąt lub prostokąt)",
+      "Circle: radius r": "Koło: promień r",
+      "Ellipse: semi-axis a": "Elipsa: półoś a",
+      "Ellipse: semi-axis b": "Elipsa: półoś b"
     }
   }
 }

@@ -2,8 +2,8 @@
   "format": 1,
   "id": "box-nets",
   "name": "Box nets",
-  "version": "2.2.0",
-  "min_base": "1.11.0",
+  "version": "2.3.0",
+  "min_base": "1.12.0",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
   "description": "The net of a box to cut out of paper or card, as one piece where the shape allows it: the outline in a continuous line, the folds dashed, with glue tabs. A prism or a truncated prism (the top slanted by up to 25 %) on a triangle, rectangle, trapezoid or regular polygon (8 sides or more), or a pyramid on a triangle or rectangle; on a circle or an ellipse the prism is a cylinder, the truncated one a cylinder cut slantways, the pyramid a cone and the truncated pyramid a truncated cone. The picture shows which length is which.",
@@ -59,7 +59,12 @@
           "default": 15,
           "min": 0,
           "max": 25,
-          "unit": "%"
+          "unit": "%",
+          "show": {
+            "solid": [
+              "Truncated prism"
+            ]
+          }
         },
         {
           "id": "top",
@@ -68,7 +73,16 @@
           "default": 50,
           "min": 5,
           "max": 95,
-          "unit": "%"
+          "unit": "%",
+          "show": {
+            "solid": [
+              "Truncated pyramid"
+            ],
+            "base": [
+              "Circle",
+              "Ellipse"
+            ]
+          }
         },
         {
           "id": "tri_a",
@@ -77,7 +91,12 @@
           "default": 50,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Triangle"
+            ]
+          }
         },
         {
           "id": "tri_b",
@@ -86,7 +105,12 @@
           "default": 50,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Triangle"
+            ]
+          }
         },
         {
           "id": "tri_c",
@@ -95,7 +119,12 @@
           "default": 50,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Triangle"
+            ]
+          }
         },
         {
           "id": "rect_w",
@@ -104,7 +133,12 @@
           "default": 60,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Rectangle"
+            ]
+          }
         },
         {
           "id": "rect_d",
@@ -113,7 +147,12 @@
           "default": 40,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Rectangle"
+            ]
+          }
         },
         {
           "id": "trap_a",
@@ -122,7 +161,12 @@
           "default": 60,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Trapezoid"
+            ]
+          }
         },
         {
           "id": "trap_b",
@@ -131,7 +175,12 @@
           "default": 30,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Trapezoid"
+            ]
+          }
         },
         {
           "id": "trap_d",
@@ -140,7 +189,12 @@
           "default": 40,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Trapezoid"
+            ]
+          }
         },
         {
           "id": "poly_n",
@@ -148,7 +202,12 @@
           "kind": "number",
           "default": 8,
           "min": 8,
-          "max": 60
+          "max": 60,
+          "show": {
+            "base": [
+              "Regular polygon"
+            ]
+          }
         },
         {
           "id": "poly_side",
@@ -157,7 +216,12 @@
           "default": 25,
           "min": 1,
           "max": 1000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Regular polygon"
+            ]
+          }
         },
         {
           "id": "circ_r",
@@ -166,7 +230,12 @@
           "default": 25,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Circle"
+            ]
+          }
         },
         {
           "id": "ell_a",
@@ -175,7 +244,12 @@
           "default": 35,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Ellipse"
+            ]
+          }
         },
         {
           "id": "ell_b",
@@ -184,7 +258,12 @@
           "default": 20,
           "min": 1,
           "max": 2000,
-          "unit": "mm"
+          "unit": "mm",
+          "show": {
+            "base": [
+              "Ellipse"
+            ]
+          }
         },
         {
           "id": "tab",

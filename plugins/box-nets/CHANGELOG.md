@@ -1,4 +1,7 @@
 # Changelog
+## 2.3.0
+* The form shows only the sizes that matter for the chosen shape (the sides of the base picked, the slant only for a truncated prism, the top size only for a truncated cone). Needs baseCreator 1.12.0.
+
 ## 2.2.0
 * A cone and a truncated cone: a pyramid (and the new Truncated pyramid, the top a share t of the base) on a circle or an ellipse. The wall is a fan (a ring of it for the truncated one) developed from the rim; the bottom, and the top, are joined to the middle of its arc by a short chord (one piece), with a ring of glue tabs; one tab closes the wall. Four new pictures. A truncated pyramid on a polygon makes a pyramid (with a warning).
 ## 2.1.0

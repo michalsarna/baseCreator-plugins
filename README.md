@@ -36,7 +36,7 @@ See the table on **https://michalsarna.github.io/baseCreator-plugins/** (built f
 
 | Plugin | What it does |
 |---|---|
-| [`box-nets`](plugins/box-nets) | the net of a box (prism, truncated prism, pyramid, cylinder) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (PenCreator; needs baseCreator 1.11.0) |
+| [`box-nets`](plugins/box-nets) | the net of a box (prism, truncated prism, pyramid, cylinder, cone, truncated cone) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (PenCreator; needs baseCreator 1.11.0) |
 | [`fractals`](plugins/fractals) | Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree |
 | [`shape-generators`](plugins/shape-generators) | holes on a circle, a spur gear |
 | [`xy-points-importer`](plugins/xy-points-importer) | reads text files of `x,y` points |

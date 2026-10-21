@@ -44,6 +44,8 @@ See the table on **https://michalsarna.github.io/baseCreator-plugins/** (built f
 | [`stl-projection`](plugins/stl-projection) | imports an STL model as outlines: the shadow of the whole model or of chosen planes, or a slice at a depth, with a preview (needs baseCreator 1.6.0) |
 | [`gcode-tools`](plugins/gcode-tools) | postprocessors: numbered lines, no comments |
 
+Circuit boards: the list of the programs and the plan for importers is in [`docs/PCB.md`](docs/PCB.md).
+
 ## Writing your own
 
 You do not need to know Rust: a plugin is a folder with a `plugin.json` and small [Rhai](https://rhai.rs) scripts.

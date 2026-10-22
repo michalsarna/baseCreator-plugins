@@ -38,13 +38,17 @@ See the table on **https://michalsarna.github.io/baseCreator-plugins/** (built f
 |---|---|
 | [`box-nets`](plugins/box-nets) | the net of a box (prism, truncated prism, pyramid, cylinder, cone, truncated cone) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (PenCreator; needs baseCreator 1.12.0) |
 | [`box-joints`](plugins/box-joints) | the same boxes for a laser: every face is a separate piece with fingers and notches that fit together, made for the thickness of the material (LightCreator; needs baseCreator 1.12.0) |
+| [`pcb-gerber`](plugins/pcb-gerber) | circuit boards: a Gerber layer (copper, board outline, legend) or an Excellon drill file from any board program; isolation, mirror, layers (needs baseCreator 1.6.0) |
+| [`pcb-kicad`](plugins/pcb-kicad) | circuit boards: a KiCad board (`.kicad_pcb`): outline, copper, holes, silkscreen in one go (needs baseCreator 1.15.0) |
+| [`pcb-eagle`](plugins/pcb-eagle) | circuit boards: an EAGLE / Fusion Electronics board (`.brd`) (needs baseCreator 1.6.0) |
+| [`pcb-easyeda`](plugins/pcb-easyeda) | circuit boards: an EasyEDA Standard PCB document (`.json`) (needs baseCreator 1.6.0) |
 | [`fractals`](plugins/fractals) | Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree |
 | [`shape-generators`](plugins/shape-generators) | holes on a circle, a spur gear |
 | [`xy-points-importer`](plugins/xy-points-importer) | reads text files of `x,y` points |
 | [`stl-projection`](plugins/stl-projection) | imports an STL model as outlines: the shadow of the whole model or of chosen planes, or a slice at a depth, with a preview (needs baseCreator 1.6.0) |
 | [`gcode-tools`](plugins/gcode-tools) | postprocessors: numbered lines, no comments |
 
-Circuit boards: the list of the programs and the plan for importers is in [`docs/PCB.md`](docs/PCB.md).
+Circuit boards: the list of the programs and what is done is in [`docs/PCB.md`](docs/PCB.md).
 
 ## Writing your own
 

@@ -2,7 +2,7 @@
 
 A list of the popular programs for designing printed circuit boards and a plan for plugins that bring their boards into
 LightCreator (laser: the board outline, masks, engraving of copper), MillCreator (isolation milling, drilling, outline) and
-PenCreator (plotting the traces with a resist pen). Nothing here is written yet: it is the map to build the plugins on.
+PenCreator (plotting the traces with a resist pen). The first four plugins are written (see *The plugins* below); the rest of the programs are the map for the next ones.
 
 ## What a program has to give us
 
@@ -43,38 +43,48 @@ How to read the table: *Easy to read* means a Rhai script can do it from the tex
 reached through Gerber; a plugin gets the whole file as a string today (see the importer template), so a binary reader
 would need a new base function and is out of scope.
 
-## The plugins to write
+## The plugins
 
 One folder per format in [`plugins/`](../plugins/), all of the **importer** kind (a generator is not needed: the board
-comes from a file). The order is by how many users it reaches for how little work:
+comes from a file). The order was by how many users it reaches for how little work:
 
-1. **`pcb-gerber`** – Gerber (`.gbr`, `.gtl`, `.gbl`, `.gko`, `.gm1`, ...) and Excellon (`.drl`, `.xln`). Draws (D01 lines
-   and arcs, apertures C/R/O/P, regions G36/G37) become outlines; the aperture is the width of the line or a pad. Reaches
-   every program above. Form: which layer role the file has (copper / outline / drill / legend), mirror for a bottom layer.
-2. **`pcb-kicad`** – `.kicad_pcb`: `gr_line`, `gr_arc`, `gr_rect`, `gr_circle`, `segment`, `arc`, `via`, `zone`
-   (filled polygons), `footprint` pads and holes, by layer name. The form picks the layers.
-3. **`pcb-eagle`** – `.brd` XML: `<plain>` wires on layer 20 (Dimension), `<signals>` wires, vias, pads, holes.
-4. **`pcb-easyeda`** – the JSON of EasyEDA (`TRACK`, `PAD`, `VIA`, `HOLE`, `SOLIDREGION`, `ARC`, `CIRCLE` shapes).
-5. **`pcb-fritzing`**, **`pcb-librepcb`**, **`pcb-horizon`**, **`pcb-geda`** – smaller, the same shape of plugin.
+| Plugin | Reads | Status |
+|---|---|---|
+| [`pcb-gerber`](../plugins/pcb-gerber) | Gerber (RS-274X, X2) layers and Excellon drill files: lines, arcs, round / rectangular / obround / polygon apertures, aperture macros, regions. Reaches every program above | done |
+| [`pcb-kicad`](../plugins/pcb-kicad) | `.kicad_pcb` (5 to 8): outline, tracks, pads, vias, filled zones, holes, silkscreen, by layer | done (needs baseCreator 1.15.0) |
+| [`pcb-eagle`](../plugins/pcb-eagle) | `.brd` XML: Dimension outline, wires, pads, SMD pads, vias, holes, silkscreen, parts built from the libraries of the file | done (pours are left out) |
+| [`pcb-easyeda`](../plugins/pcb-easyeda) | the PCB JSON of EasyEDA Standard: tracks, arcs, circles, solid regions, pads, vias, holes | done (written from the format description, not tried on a real export) |
+| `pcb-horizon`, `pcb-geda` | Horizon EDA JSON, gEDA PCB / pcb-rnd text | not written |
+| `pcb-fritzing`, `pcb-librepcb` | `.fzz` and `.lppz` are zip archives: a script gets one file as text, so these need the archive to be opened by the program first (a new base function) | not written, use Gerber |
 
 Altium and the other binary programs are served by `pcb-gerber` (and, later, a reader of DXF if the base gets one).
+
+All four share one form (the same ids, labels and translations): which parts to read, `mirror`, `origin`, how to draw the
+copper (centre lines for a plotter, or outlines grown by the `isolation` for milling and laser), how to draw the holes and
+the program layer of each part. The shared code is the same text in every `read.rhai` (a plugin cannot import another); its source and the script that pastes it
+are in [`tools/pcb/`](../tools/pcb) (`python3 tools/pcb/build.py gerber kicad eagle easyeda`).
+
+What a script of a plugin may do shaped the code, and is worth knowing for the next ones: an array of arrays gets slow when
+it is long (the sandbox looks through the whole array at every `push`), so the pieces of a board are arrays with the points
+written as one text; object maps are limited to 20 000 entries, so more than 300 contours of a layer are returned as a few
+compound `path` shapes, not as a shape each; the union of the copper is made in batches; a script may run 10 seconds, which a
+board of about ten thousand tracks reaches in *outlines* mode (the centre lines take about a second).
 
 ### Structure of one plugin
 
 ```
 plugins/pcb-kicad/
   plugin.json        "importers": [{ "id": "kicad-pcb", "name": "KiCad board (.kicad_pcb)",
-                                     "extensions": ["kicad_pcb"], "script": "read.rhai" }]
-  read.rhai          fn read(text, ctx) -> shapes;  fn form(text, ctx) -> the layers found, to pick from
-  parse.rhai         (optional) the tokenizer of the format, shared by the functions
+                                     "extensions": ["kicad_pcb"], "script": "read.rhai", "params": [...] }]
+  read.rhai          fn read(text, ctx) -> shapes (ctx.p holds the values of the form); the shared code is pasted in it by `tools/pcb/build.py`
   tests/sample.kicad_pcb   a small board; the CI runs the importer on it
   CHANGELOG.md
   README.md          what is read, what is not, which program version it was tried with
 ```
 
-* `form(text, ctx)` lists the layers the file really has (so the user ticks *Edge.Cuts*, *F.Cu*, *drill*), each as a
-  `bool` parameter; `read` draws only the ticked ones, each layer on its own program layer (LightCreator and
-  MillCreator: layer 0 = the outline, 1 = the traces, 2 = the drill holes; the numbers are parameters).
+* the form has a `bool` for each part of the board (*Edge.Cuts*, *F.Cu*, drill holes...); `read` draws only the ticked ones,
+  each on its own program layer (layer 0 = the outline, 1 = the copper, 2 = the drill holes, 3 = the legend; the numbers are
+  parameters). A `form(text, ctx)` function could list the layers a file really has; the four plugins use a fixed list.
 * Parameters common to all the PCB plugins (same ids, same labels, so one translation serves all):
   `mirror` (a bottom layer is seen from the top), `isolation` (grow the traces by this many mm for isolation milling),
   `holes_as` (circles of the real size / points for drilling), `origin` (board corner / drill origin).
@@ -94,7 +104,8 @@ plugins/pcb-kicad/
 
 ## Next steps
 
-1. `pcb-gerber` first, with a test sample from a KiCad plot.
-2. The shared parameters and the labels, translated once (Polish included).
-3. `pcb-kicad`, then `pcb-eagle` and `pcb-easyeda`.
-4. A page on the plugins site that groups them ("Circuit boards").
+1. Try the readers on real boards from the programs and fix what differs (the EasyEDA ones most of all).
+2. `pcb-horizon` and `pcb-geda`; the zip formats when the base can open an archive.
+3. A page on the plugins site that groups them ("Circuit boards").
+4. Copper pours: EAGLE and EasyEDA keep only the outline of a pour, so the plugins leave them out; a base function that
+   subtracts the other copper (`difference_polygons`) would let them be drawn with their clearances.

@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "id": "pcb-gerber",
+  "name": "Circuit board: Gerber and Excellon",
+  "version": "1.0.0",
+  "min_base": "1.6.0",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "description": "Reads the files a circuit board program writes for a manufacturer: Gerber layers (copper, board outline, legend) and Excellon drill files. One file is one layer; use it once for each layer you need. Works for KiCad, EAGLE, Altium, EasyEDA, Fritzing, DipTrace, Proteus and every other program that can plot Gerber.",
+  "importers": [
+    {
+      "id": "gerber",
+      "name": "Gerber / Excellon (circuit board layer)",
+      "extensions": [
+        "gbr",
+        "ger",
+        "gtl",
+        "gbl",
+        "gts",
+        "gbs",
+        "gto",
+        "gbo",
+        "gtp",
+        "gbp",
+        "gko",
+        "gm1",
+        "gml",
+        "g1",
+        "g2",
+        "drl",
+        "xln",
+        "exc",
+        "drd"
+      ],
+      "script": "read.rhai",
+      "params": [
+        {
+          "id": "role",
+          "label": "What the file is",
+          "kind": "choice",
+          "default": "Detect from the file",
+          "options": [
+            "Detect from the file",
+            "Copper",
+            "Board outline",
+            "Legend (silkscreen)"
+          ]
+        },
+        {
+          "id": "mirror",
+          "label": "Mirror (a bottom layer seen from the top)",
+          "kind": "bool",
+          "default": false
+        },
+        {
+          "id": "origin",
+          "label": "Origin",
+          "kind": "choice",
+          "default": "As in the file",
+          "options": [
+            "As in the file",
+            "Board corner to the top left"
+          ]
+        },
+        {
+          "id": "mode",
+          "label": "Copper drawn as",
+          "kind": "choice",
+          "default": "Outlines grown by the isolation",
+          "options": [
+            "Centre lines",
+            "Outlines grown by the isolation"
+          ]
+        },
+        {
+          "id": "isolation",
+          "label": "Isolation",
+          "kind": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 5,
+          "unit": "mm"
+        },
+        {
+          "id": "holes_as",
+          "label": "Holes drawn as",
+          "kind": "choice",
+          "default": "Circles of the real size",
+          "options": [
+            "Circles of the real size",
+            "Small circles at the centres"
+          ]
+        },
+        {
+          "id": "layer_outline",
+          "label": "Layer of the board outline",
+          "kind": "number",
+          "default": 0,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        },
+        {
+          "id": "layer_copper",
+          "label": "Layer of the copper",
+          "kind": "number",
+          "default": 1,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        },
+        {
+          "id": "layer_holes",
+          "label": "Layer of the drill holes",
+          "kind": "number",
+          "default": 2,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        },
+        {
+          "id": "layer_legend",
+          "label": "Layer of the legend",
+          "kind": "number",
+          "default": 3,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        }
+      ]
+    }
+  ],
+  "texts": {
+    "pl": {
+      "Mirror (a bottom layer seen from the top)": "Odbicie lustrzane (warstwa spodnia widziana od góry)",
+      "Origin": "Początek układu",
+      "As in the file": "Jak w pliku",
+      "Board corner to the top left": "Narożnik płytki w lewym górnym rogu",
+      "Copper drawn as": "Miedź rysowana jako",
+      "Centre lines": "Linie środkowe",
+      "Outlines grown by the isolation": "Kontury powiększone o izolację",
+      "Isolation": "Izolacja",
+      "Holes drawn as": "Otwory rysowane jako",
+      "Circles of the real size": "Okręgi w prawdziwym rozmiarze",
+      "Small circles at the centres": "Małe okręgi w środkach",
+      "Layer of the board outline": "Warstwa obrysu płytki",
+      "Layer of the copper": "Warstwa miedzi",
+      "Layer of the drill holes": "Warstwa otworów",
+      "Layer of the legend": "Warstwa opisu (sitodruk)",
+      "What the file is": "Czym jest plik",
+      "Detect from the file": "Rozpoznaj z pliku",
+      "Copper": "Miedź",
+      "Board outline": "Obrys płytki",
+      "Legend (silkscreen)": "Opis (sitodruk)",
+      "Circuit board: Gerber and Excellon": "Płytka drukowana: Gerber i Excellon",
+      "Gerber / Excellon (circuit board layer)": "Gerber / Excellon (warstwa płytki)",
+      "Reads the files a circuit board program writes for a manufacturer: Gerber layers (copper, board outline, legend) and Excellon drill files. One file is one layer; use it once for each layer you need. Works for KiCad, EAGLE, Altium, EasyEDA, Fritzing, DipTrace, Proteus and every other program that can plot Gerber.": "Czyta pliki, które program do płytek drukowanych zapisuje dla producenta: warstwy Gerber (miedź, obrys płytki, opis) i pliki wierceń Excellon. Jeden plik to jedna warstwa; użyj wtyczki osobno dla każdej potrzebnej warstwy. Działa z KiCadem, EAGLE, Altium, EasyEDA, Fritzing, DipTrace, Proteusem i każdym programem, który zapisuje Gerbery."
+    }
+  }
+}

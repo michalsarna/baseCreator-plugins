@@ -1,0 +1,17 @@
+M48
+; DRILL file {Sample} date 2026
+; FORMAT={-:-/ absolute / metric / decimal}
+FMAT,2
+METRIC,TZ
+T1C0.800
+T2C1.000
+%
+G90
+G05
+T1
+X5.0Y5.0
+X35.0Y15.0
+T2
+X10.0Y20.0
+X20.0Y8.0
+M30

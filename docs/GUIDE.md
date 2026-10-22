@@ -65,7 +65,7 @@ A plugin is a **folder** with a `plugin.json` (the manifest) and the files it na
   `description`, the labels and options of the forms, importer and postprocessor names. Language codes are the ones of
   the programs (`pl`, `de`, `it`, `fi`, `zh`, `hi`, `bg`, `ca`, `hr`, `cs`, `da`, `nl`, `et`, `fr`, `el`, `hu`, `is`,
   `ga`, `lv`, `lt`, `mt`, `nb`, `pt`, `ro`, `sk`, `sl`, `es`, `sv`, `uk`).
-- Importers must not use the extensions the programs read themselves (`svg pdf ai cre lbrn lbrn2 ugsd png jpg jpeg bmp gif webp`).
+- Importers must not use the extensions the programs read themselves (`svg pdf ai cre lbrn lbrn2 ugsd png jpg jpeg bmp gif webp`). An extension is letters, digits and `_` (the `_` needs baseCreator 1.15.0: `kicad_pcb`).
 
 ## 3. Scripts: the language and the functions you get
 
@@ -130,7 +130,7 @@ fn generate(p, ctx) {
 
 ## 5. Importers
 
-An importer reads **one file type**. `extensions` lists them without the dot; the program offers the plugin for those
+An importer reads **one file type**. `extensions` lists them without the dot (letters, digits, `_`); the program offers the plugin for those
 files in *Import with a plugin…*, in Open and on drag and drop. The script gets the file as text (bytes that are not
 UTF-8 become `�`) and returns shapes. Put a small file in `tests/sample.<extension>` (see [`xy-points-importer`](../plugins/xy-points-importer)):
 the checks of this repository run the importer on it.

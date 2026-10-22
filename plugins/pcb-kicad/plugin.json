@@ -1,0 +1,167 @@
+{
+  "format": 1,
+  "id": "pcb-kicad",
+  "name": "Circuit board: KiCad",
+  "version": "1.0.0",
+  "min_base": "1.15.0",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "description": "Reads a KiCad board (.kicad_pcb, KiCad 5 to 8): the board outline, copper (tracks, pads, vias, filled zones), drill holes and the silkscreen, each part ticked in the form. For isolation milling, laser engraving of a resist or plotting of the traces.",
+  "importers": [
+    {
+      "id": "kicad-pcb",
+      "name": "KiCad board (.kicad_pcb)",
+      "extensions": [
+        "kicad_pcb"
+      ],
+      "script": "read.rhai",
+      "params": [
+        {
+          "id": "outline",
+          "label": "Board outline (Edge.Cuts)",
+          "kind": "bool",
+          "default": true
+        },
+        {
+          "id": "copper_top",
+          "label": "Copper on top",
+          "kind": "bool",
+          "default": true
+        },
+        {
+          "id": "copper_bottom",
+          "label": "Copper on the bottom",
+          "kind": "bool",
+          "default": false
+        },
+        {
+          "id": "holes",
+          "label": "Drill holes",
+          "kind": "bool",
+          "default": true
+        },
+        {
+          "id": "legend_top",
+          "label": "Legend on top",
+          "kind": "bool",
+          "default": false
+        },
+        {
+          "id": "legend_bottom",
+          "label": "Legend on the bottom",
+          "kind": "bool",
+          "default": false
+        },
+        {
+          "id": "mirror",
+          "label": "Mirror (a bottom layer seen from the top)",
+          "kind": "bool",
+          "default": false
+        },
+        {
+          "id": "origin",
+          "label": "Origin",
+          "kind": "choice",
+          "default": "Board corner to the top left",
+          "options": [
+            "As in the file",
+            "Board corner to the top left"
+          ]
+        },
+        {
+          "id": "mode",
+          "label": "Copper drawn as",
+          "kind": "choice",
+          "default": "Outlines grown by the isolation",
+          "options": [
+            "Centre lines",
+            "Outlines grown by the isolation"
+          ]
+        },
+        {
+          "id": "isolation",
+          "label": "Isolation",
+          "kind": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 5,
+          "unit": "mm"
+        },
+        {
+          "id": "holes_as",
+          "label": "Holes drawn as",
+          "kind": "choice",
+          "default": "Circles of the real size",
+          "options": [
+            "Circles of the real size",
+            "Small circles at the centres"
+          ]
+        },
+        {
+          "id": "layer_outline",
+          "label": "Layer of the board outline",
+          "kind": "number",
+          "default": 0,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        },
+        {
+          "id": "layer_copper",
+          "label": "Layer of the copper",
+          "kind": "number",
+          "default": 1,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        },
+        {
+          "id": "layer_holes",
+          "label": "Layer of the drill holes",
+          "kind": "number",
+          "default": 2,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        },
+        {
+          "id": "layer_legend",
+          "label": "Layer of the legend",
+          "kind": "number",
+          "default": 3,
+          "min": 0,
+          "max": 20,
+          "unit": ""
+        }
+      ]
+    }
+  ],
+  "texts": {
+    "pl": {
+      "Mirror (a bottom layer seen from the top)": "Odbicie lustrzane (warstwa spodnia widziana od góry)",
+      "Origin": "Początek układu",
+      "As in the file": "Jak w pliku",
+      "Board corner to the top left": "Narożnik płytki w lewym górnym rogu",
+      "Copper drawn as": "Miedź rysowana jako",
+      "Centre lines": "Linie środkowe",
+      "Outlines grown by the isolation": "Kontury powiększone o izolację",
+      "Isolation": "Izolacja",
+      "Holes drawn as": "Otwory rysowane jako",
+      "Circles of the real size": "Okręgi w prawdziwym rozmiarze",
+      "Small circles at the centres": "Małe okręgi w środkach",
+      "Layer of the board outline": "Warstwa obrysu płytki",
+      "Layer of the copper": "Warstwa miedzi",
+      "Layer of the drill holes": "Warstwa otworów",
+      "Layer of the legend": "Warstwa opisu (sitodruk)",
+      "Board outline (Edge.Cuts)": "Obrys płytki (Edge.Cuts)",
+      "Copper on top": "Miedź na wierzchu",
+      "Copper on the bottom": "Miedź na spodzie",
+      "Drill holes": "Otwory wiercone",
+      "Legend on top": "Opis na wierzchu",
+      "Legend on the bottom": "Opis na spodzie",
+      "Circuit board: KiCad": "Płytka drukowana: KiCad",
+      "KiCad board (.kicad_pcb)": "Płytka KiCad (.kicad_pcb)",
+      "Reads a KiCad board (.kicad_pcb, KiCad 5 to 8): the board outline, copper (tracks, pads, vias, filled zones), drill holes and the silkscreen, each part ticked in the form. For isolation milling, laser engraving of a resist or plotting of the traces.": "Czyta płytkę z KiCada (.kicad_pcb, KiCad 5 do 8): obrys płytki, miedź (ścieżki, pady, przelotki, wypełnione obszary), otwory i sitodruk — każdą część zaznaczasz w formularzu. Do frezowania izolacji, wypalania maski laserem lub rysowania ścieżek."
+    }
+  }
+}

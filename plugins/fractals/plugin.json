@@ -2,7 +2,7 @@
   "format": 1,
   "id": "fractals",
   "name": "Fractals",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
   "min_base": "0.9.8",
@@ -22,7 +22,8 @@
       "Width": "Szerokość",
       "Put in the middle of the work area": "Połóż na środku pola roboczego",
       "Layer": "Warstwa",
-      "Angle of the branches": "Kąt gałęzi"
+      "Angle of the branches": "Kąt gałęzi",
+      "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.": "Klasyczne fraktale jako kontury. Głębokość jest ograniczona dla każdego rodzaju, aby wynik miał rozsądny rozmiar."
     },
     "de": {
       "Fractals": "Fraktale",
@@ -37,7 +38,77 @@
       "Width": "Breite",
       "Put in the middle of the work area": "In die Mitte des Arbeitsbereichs setzen",
       "Layer": "Ebene",
-      "Angle of the branches": "Winkel der Äste"
+      "Angle of the branches": "Winkel der Äste",
+      "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.": "Klassische Fraktale als Umrisse. Die Tiefe ist für jede Art begrenzt, damit das Ergebnis eine sinnvolle Größe behält.",
+      "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.": "Erzeugt klassische Fraktale als Umrisse: Sierpinski-Dreieck und -Teppich, Koch-Schneeflocke, Hilbert- und Drachenkurve, Pythagoras-Baum. Wählen Sie eines, stellen Sie Tiefe und Größe ein, und es wird der Zeichnung hinzugefügt."
+    },
+    "it": {
+      "Angle of the branches": "Angolo dei rami",
+      "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.": "Frattali classici come contorni. La profondità è limitata per ogni tipo, così il risultato resta di dimensioni ragionevoli.",
+      "Depth (steps)": "Profondità (passi)",
+      "Dragon curve": "Curva del drago",
+      "Fractal": "Frattale",
+      "Fractals": "Frattali",
+      "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.": "Genera frattali classici come contorni: triangolo e tappeto di Sierpinski, fiocco di neve di Koch, curve di Hilbert e del drago, albero di Pitagora. Scegline uno, imposta profondità e dimensione e viene aggiunto al disegno.",
+      "Hilbert curve": "Curva di Hilbert",
+      "Koch snowflake": "Fiocco di neve di Koch",
+      "Layer": "Livello",
+      "Put in the middle of the work area": "Metti al centro dell'area di lavoro",
+      "Pythagoras tree": "Albero di Pitagora",
+      "Sierpinski carpet": "Tappeto di Sierpinski",
+      "Sierpinski triangle": "Triangolo di Sierpinski",
+      "Width": "Larghezza"
+    },
+    "fi": {
+      "Angle of the branches": "Haarojen kulma",
+      "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.": "Klassiset fraktaalit ääriviivoina. Syvyys on rajoitettu jokaiselle lajille, jotta tulos pysyy järkevän kokoisena.",
+      "Depth (steps)": "Syvyys (askeleet)",
+      "Dragon curve": "Lohikäärmekäyrä",
+      "Fractal": "Fraktaali",
+      "Fractals": "Fraktaalit",
+      "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.": "Luo klassisia fraktaaleja ääriviivoina: Sierpinskin kolmio ja matto, Kochin lumihiutale, Hilbertin ja lohikäärmeen käyrät, Pythagoraan puu. Valitse yksi, aseta syvyys ja koko, niin se lisätään piirrokseen.",
+      "Hilbert curve": "Hilbertin käyrä",
+      "Koch snowflake": "Kochin lumihiutale",
+      "Layer": "Taso",
+      "Put in the middle of the work area": "Aseta työalueen keskelle",
+      "Pythagoras tree": "Pythagoraan puu",
+      "Sierpinski carpet": "Sierpinskin matto",
+      "Sierpinski triangle": "Sierpinskin kolmio",
+      "Width": "Leveys"
+    },
+    "zh": {
+      "Angle of the branches": "分支角度",
+      "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.": "以轮廓形式生成经典分形。每种分形的深度都有限制，以使结果大小合理。",
+      "Depth (steps)": "深度（步数）",
+      "Dragon curve": "龙曲线",
+      "Fractal": "分形",
+      "Fractals": "分形",
+      "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.": "以轮廓形式生成经典分形：谢尔宾斯基三角形和地毯、科赫雪花、希尔伯特曲线和龙曲线、毕达哥拉斯树。选择一种，设置深度和大小，即可添加到绘图中。",
+      "Hilbert curve": "希尔伯特曲线",
+      "Koch snowflake": "科赫雪花",
+      "Layer": "图层",
+      "Put in the middle of the work area": "放在工作区中央",
+      "Pythagoras tree": "毕达哥拉斯树",
+      "Sierpinski carpet": "谢尔宾斯基地毯",
+      "Sierpinski triangle": "谢尔宾斯基三角形",
+      "Width": "宽度"
+    },
+    "hi": {
+      "Angle of the branches": "शाखाओं का कोण",
+      "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.": "रूपरेखा के रूप में क्लासिक फ्रैक्टल। हर प्रकार की गहराई सीमित है ताकि परिणाम उचित आकार का रहे।",
+      "Depth (steps)": "गहराई (चरण)",
+      "Dragon curve": "ड्रैगन कर्व",
+      "Fractal": "फ्रैक्टल",
+      "Fractals": "फ्रैक्टल",
+      "Generates classic fractals as outlines: Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree. Choose one, set the depth and the size, and it is added to the drawing.": "रूपरेखा के रूप में क्लासिक फ्रैक्टल बनाता है: सियरपिंस्की त्रिभुज और कालीन, कोच स्नोफ्लेक, हिल्बर्ट और ड्रैगन कर्व, पाइथागोरस वृक्ष। एक चुनें, गहराई और आकार तय करें, और वह चित्र में जुड़ जाता है।",
+      "Hilbert curve": "हिल्बर्ट कर्व",
+      "Koch snowflake": "कोच स्नोफ्लेक",
+      "Layer": "परत",
+      "Put in the middle of the work area": "कार्य क्षेत्र के बीच में रखें",
+      "Pythagoras tree": "पाइथागोरस वृक्ष",
+      "Sierpinski carpet": "सियरपिंस्की कालीन",
+      "Sierpinski triangle": "सियरपिंस्की त्रिभुज",
+      "Width": "चौड़ाई"
     }
   },
   "generators": [
@@ -47,12 +118,60 @@
       "description": "Classic fractals as outlines. The depth is limited for each kind so that the result stays a sensible size.",
       "script": "fractal.rhai",
       "params": [
-        { "id": "kind", "label": "Fractal", "kind": "choice", "default": "Sierpinski triangle", "options": ["Sierpinski triangle", "Sierpinski carpet", "Koch snowflake", "Hilbert curve", "Dragon curve", "Pythagoras tree"] },
-        { "id": "depth", "label": "Depth (steps)", "kind": "number", "default": 4, "min": 1, "max": 14 },
-        { "id": "width", "label": "Width", "kind": "number", "default": 100, "min": 5, "max": 5000, "unit": "mm" },
-        { "id": "angle", "label": "Angle of the branches", "kind": "number", "default": 45, "min": 15, "max": 75, "unit": "°" },
-        { "id": "middle", "label": "Put in the middle of the work area", "kind": "bool", "default": true },
-        { "id": "layer", "label": "Layer", "kind": "number", "default": 0, "min": 0, "max": 15 }
+        {
+          "id": "kind",
+          "label": "Fractal",
+          "kind": "choice",
+          "default": "Sierpinski triangle",
+          "options": [
+            "Sierpinski triangle",
+            "Sierpinski carpet",
+            "Koch snowflake",
+            "Hilbert curve",
+            "Dragon curve",
+            "Pythagoras tree"
+          ]
+        },
+        {
+          "id": "depth",
+          "label": "Depth (steps)",
+          "kind": "number",
+          "default": 4,
+          "min": 1,
+          "max": 14
+        },
+        {
+          "id": "width",
+          "label": "Width",
+          "kind": "number",
+          "default": 100,
+          "min": 5,
+          "max": 5000,
+          "unit": "mm"
+        },
+        {
+          "id": "angle",
+          "label": "Angle of the branches",
+          "kind": "number",
+          "default": 45,
+          "min": 15,
+          "max": 75,
+          "unit": "°"
+        },
+        {
+          "id": "middle",
+          "label": "Put in the middle of the work area",
+          "kind": "bool",
+          "default": true
+        },
+        {
+          "id": "layer",
+          "label": "Layer",
+          "kind": "number",
+          "default": 0,
+          "min": 0,
+          "max": 15
+        }
       ]
     }
   ]

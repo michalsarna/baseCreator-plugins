@@ -1,4 +1,7 @@
 # Changelog
+## 2.3.1
+* Translations into German, Italian, Finnish, Chinese and Hindi, and Polish where it was missing (names, descriptions, labels, options and messages).
+
 ## 2.3.0
 * The form shows only the sizes that matter for the chosen shape (the sides of the base picked, the slant only for a truncated prism, the top size only for a truncated cone). Needs baseCreator 1.12.0.
 

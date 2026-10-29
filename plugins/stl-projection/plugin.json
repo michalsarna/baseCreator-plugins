@@ -2,7 +2,7 @@
   "format": 1,
   "id": "stl-projection",
   "name": "STL projection (work in progress)",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
   "description": "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.",
@@ -39,7 +39,38 @@
       "Smallest plane": "Najmniejsza płaszczyzna",
       "Planes: tick the ones to project": "Płaszczyzny: zaznacz te do rzutowania",
       "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "Model jest pokazany w 3D: obracasz go myszą lub wybierasz widok, a kontury są takie, jak model wygląda z tej strony; bez obrotu — z góry (oś Z w górę). Kontury zachowują swoje miejsce w obrysie widoku, którego lewy górny róg jest w punkcie (0, 0).",
-      "STL projection (work in progress)": "Rzut STL (w trakcie prac)"
+      "STL projection (work in progress)": "Rzut STL (w trakcie prac)",
+      "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.": "Importuje model STL jako kontury: cień całego modelu lub wybranych płaszczyzn (laser, ploter) albo przekrój na wybranej głębokości (frezarka), z podglądem."
+    },
+    "de": {
+      "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.": "Importiert ein STL-Modell als Umrisse: den Schatten des ganzen Modells oder der gewählten Ebenen (Laser, Plotter) oder einen Schnitt in gewählter Tiefe (Fräse), mit Vorschau.",
+      "STL model": "STL-Modell",
+      "STL projection (work in progress)": "STL-Projektion (in Arbeit)",
+      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "Das Modell wird in 3D gezeigt: Drehen Sie es mit der Maus oder wählen Sie eine Ansicht; die Umrisse sind die des so gesehenen Modells, von oben (Z nach oben), wenn es nicht gedreht ist. Sie behalten ihren Platz im Kasten der Ansicht, dessen obere linke Ecke bei (0, 0) liegt."
+    },
+    "it": {
+      "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.": "Importa un modello STL come contorni: l'ombra dell'intero modello o dei piani scelti (laser, plotter), oppure una sezione a una profondità scelta (fresatrice), con anteprima.",
+      "STL model": "Modello STL",
+      "STL projection (work in progress)": "Proiezione STL (in lavorazione)",
+      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "Il modello è mostrato in 3D: giralo con il mouse o scegli una vista; i contorni sono quelli del modello visto in quel modo, dall'alto (Z in su) se non è ruotato. Mantengono la loro posizione nel riquadro della vista, il cui angolo in alto a sinistra è in (0, 0)."
+    },
+    "fi": {
+      "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.": "Tuo STL-mallin ääriviivoina: koko mallin tai valittujen tasojen varjon (laser, piirturi) tai leikkauksen valitulla syvyydellä (jyrsin), esikatselulla.",
+      "STL model": "STL-malli",
+      "STL projection (work in progress)": "STL-projektio (kesken)",
+      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "Malli näytetään 3D:nä: käännä sitä hiirellä tai valitse näkymä, ja ääriviivat ovat tällä tavoin katsotun mallin; ylhäältä (Z ylös), kun sitä ei ole käännetty. Ne säilyttävät paikkansa näkymän laatikossa, jonka vasen yläkulma on kohdassa (0, 0)."
+    },
+    "zh": {
+      "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.": "将 STL 模型导入为轮廓：整个模型或所选平面的投影（激光、绘图仪），或按所选深度的切片（雕刻机），带预览。",
+      "STL model": "STL 模型",
+      "STL projection (work in progress)": "STL 投影（开发中）",
+      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "模型以 3D 显示：用鼠标旋转或选择视图，轮廓即为从该方向看到的模型轮廓；未旋转时为俯视（Z 向上）。轮廓保留在视图框中的位置，视图框的左上角位于 (0, 0)。"
+    },
+    "hi": {
+      "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.": "STL मॉडल को रूपरेखा के रूप में आयात करता है: पूरे मॉडल या चुने गए तलों की छाया (लेज़र, प्लॉटर), या चुनी गहराई पर स्लाइस (राउटर), पूर्वावलोकन के साथ।",
+      "STL model": "STL मॉडल",
+      "STL projection (work in progress)": "STL प्रक्षेपण (विकासाधीन)",
+      "The model is shown in 3D: turn it with the mouse or pick a view, and the outlines are those of the model seen that way; from above (Z up) when it is not turned. They keep their place in the box of the view, whose top left corner is at (0, 0).": "मॉडल 3D में दिखाया जाता है: माउस से घुमाएँ या दृश्य चुनें, और रूपरेखाएँ उसी तरह देखे गए मॉडल की होती हैं; घुमाया न हो तो ऊपर से (Z ऊपर)। वे दृश्य के बॉक्स में अपनी जगह रखती हैं, जिसका ऊपरी बायाँ कोना (0, 0) पर है।"
     }
   }
 }

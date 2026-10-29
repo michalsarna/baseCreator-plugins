@@ -1,4 +1,7 @@
 # Changelog
+## 0.2.2
+* Translations into German, Italian, Finnish, Chinese and Hindi, and Polish where it was missing (names, descriptions, labels, options and messages).
+
 ## 0.2.1
 * Marked as a work in progress: the 3D view is still being worked on.
 ## 0.2.0

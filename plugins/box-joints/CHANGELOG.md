@@ -1,4 +1,7 @@
 # Changelog
+## 1.0.1
+* Translations into German, Italian, Finnish, Chinese and Hindi, and Polish where it was missing (names, descriptions, labels, options and messages).
+
 ## 1.0.0
 * First version, for LightCreator: a box to cut out of plywood, acrylic or card and put together without glue. Every face is a separate piece and the edges have fingers and notches (a box joint) that fit into each other.
 * The same shapes as in `box-nets`: a prism or a truncated prism (slanted top) on a triangle, rectangle, trapezoid or regular polygon, a pyramid on a triangle or rectangle, and on a circle or an ellipse a cylinder (straight or slanted), a cone and a truncated cone. The same pictures show which length is which.

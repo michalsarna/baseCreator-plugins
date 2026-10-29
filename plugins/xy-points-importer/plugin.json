@@ -2,7 +2,7 @@
   "format": 1,
   "id": "xy-points-importer",
   "name": "XY points importer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "min_base": "0.9.8",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
@@ -17,5 +17,37 @@
       ],
       "script": "import.rhai"
     }
-  ]
+  ],
+  "texts": {
+    "pl": {
+      "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.": "Czyta plik tekstowy z punktami x,y (milimetry od lewego dolnego rogu obszaru roboczego). Pusty wiersz zaczyna nową linię; wiersz `closed` przed przerwą zamyka kształt.",
+      "XY points (.xy, .csv)": "Punkty XY (.xy, .csv)",
+      "XY points importer": "Import punktów XY"
+    },
+    "de": {
+      "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.": "Liest eine Textdatei mit x,y-Punkten (Millimeter ab der unteren linken Ecke des Arbeitsbereichs). Eine Leerzeile beginnt eine neue Linie; eine Zeile `closed` vor der Unterbrechung schließt die Form.",
+      "XY points (.xy, .csv)": "XY-Punkte (.xy, .csv)",
+      "XY points importer": "XY-Punkte-Import"
+    },
+    "it": {
+      "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.": "Legge un file di testo di punti x,y (millimetri dall'angolo in basso a sinistra dell'area di lavoro). Una riga vuota inizia una nuova linea; una riga `closed` prima dell'interruzione chiude la forma.",
+      "XY points (.xy, .csv)": "Punti XY (.xy, .csv)",
+      "XY points importer": "Importazione di punti XY"
+    },
+    "fi": {
+      "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.": "Lukee tekstitiedoston, jossa on x,y-pisteitä (millimetreinä työalueen vasemmasta alakulmasta). Tyhjä rivi aloittaa uuden viivan; rivi `closed` ennen katkoa sulkee muodon.",
+      "XY points (.xy, .csv)": "XY-pisteet (.xy, .csv)",
+      "XY points importer": "XY-pisteiden tuonti"
+    },
+    "zh": {
+      "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.": "读取包含 x,y 点的文本文件（以毫米为单位，自工作区左下角起算）。空行开始新的线条；断开前的一行 `closed` 会使形状闭合。",
+      "XY points (.xy, .csv)": "XY 点 (.xy, .csv)",
+      "XY points importer": "XY 点导入"
+    },
+    "hi": {
+      "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.": "x,y बिंदुओं वाली टेक्स्ट फ़ाइल पढ़ता है (कार्य क्षेत्र के निचले बाएँ कोने से मिलीमीटर में)। खाली पंक्ति नई रेखा शुरू करती है; विराम से पहले की पंक्ति `closed` आकार को बंद करती है।",
+      "XY points (.xy, .csv)": "XY बिंदु (.xy, .csv)",
+      "XY points importer": "XY बिंदु आयातक"
+    }
+  }
 }

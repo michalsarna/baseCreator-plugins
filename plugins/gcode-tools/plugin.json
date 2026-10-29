@@ -2,7 +2,7 @@
   "format": 1,
   "id": "gcode-tools",
   "name": "G-code tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "min_base": "0.9.8",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
@@ -20,5 +20,55 @@
       "description": "Controllers with a short line buffer do not like comments.",
       "script": "strip.rhai"
     }
-  ]
+  ],
+  "texts": {
+    "pl": {
+      "Controllers with a short line buffer do not like comments.": "Sterowniki z krótkim buforem linii nie lubią komentarzy.",
+      "For controllers that want line numbers.": "Dla sterowników, które wymagają numerów linii.",
+      "G-code tools": "Narzędzia G-code",
+      "Number the lines (N10, N20, …)": "Numeruj linie (N10, N20, …)",
+      "Postprocessors: numbered lines, and a program without comments.": "Postprocesory: numerowane linie i program bez komentarzy.",
+      "Remove comments": "Usuń komentarze"
+    },
+    "de": {
+      "Controllers with a short line buffer do not like comments.": "Steuerungen mit kurzem Zeilenpuffer mögen keine Kommentare.",
+      "For controllers that want line numbers.": "Für Steuerungen, die Zeilennummern verlangen.",
+      "G-code tools": "G-Code-Werkzeuge",
+      "Number the lines (N10, N20, …)": "Zeilen nummerieren (N10, N20, …)",
+      "Postprocessors: numbered lines, and a program without comments.": "Postprozessoren: nummerierte Zeilen und ein Programm ohne Kommentare.",
+      "Remove comments": "Kommentare entfernen"
+    },
+    "it": {
+      "Controllers with a short line buffer do not like comments.": "I controller con un buffer di riga corto non gradiscono i commenti.",
+      "For controllers that want line numbers.": "Per i controller che richiedono i numeri di riga.",
+      "G-code tools": "Strumenti G-code",
+      "Number the lines (N10, N20, …)": "Numera le righe (N10, N20, …)",
+      "Postprocessors: numbered lines, and a program without comments.": "Postprocessori: righe numerate e un programma senza commenti.",
+      "Remove comments": "Rimuovi i commenti"
+    },
+    "fi": {
+      "Controllers with a short line buffer do not like comments.": "Ohjaimet, joilla on lyhyt rivipuskuri, eivät pidä kommenteista.",
+      "For controllers that want line numbers.": "Ohjaimille, jotka vaativat rivinumerot.",
+      "G-code tools": "G-koodityökalut",
+      "Number the lines (N10, N20, …)": "Numeroi rivit (N10, N20, …)",
+      "Postprocessors: numbered lines, and a program without comments.": "Jälkikäsittelijät: numeroidut rivit ja ohjelma ilman kommentteja.",
+      "Remove comments": "Poista kommentit"
+    },
+    "zh": {
+      "Controllers with a short line buffer do not like comments.": "行缓冲区较短的控制器不喜欢注释。",
+      "For controllers that want line numbers.": "适用于需要行号的控制器。",
+      "G-code tools": "G 代码工具",
+      "Number the lines (N10, N20, …)": "为行编号 (N10, N20, …)",
+      "Postprocessors: numbered lines, and a program without comments.": "后处理器：带行号，以及不含注释的程序。",
+      "Remove comments": "删除注释"
+    },
+    "hi": {
+      "Controllers with a short line buffer do not like comments.": "छोटे लाइन बफर वाले कंट्रोलर टिप्पणियाँ पसंद नहीं करते।",
+      "For controllers that want line numbers.": "उन कंट्रोलरों के लिए जिन्हें पंक्ति संख्या चाहिए।",
+      "G-code tools": "G-कोड टूल",
+      "Number the lines (N10, N20, …)": "पंक्तियों को क्रमांकित करें (N10, N20, …)",
+      "Postprocessors: numbered lines, and a program without comments.": "पोस्टप्रोसेसर: क्रमांकित पंक्तियाँ और टिप्पणियों के बिना प्रोग्राम।",
+      "Remove comments": "टिप्पणियाँ हटाएँ"
+    }
+  }
 }

@@ -45,7 +45,7 @@ See the table on **https://michalsarna.github.io/baseCreator-plugins/** (built f
 | [`fractals`](plugins/fractals) | Sierpinski triangle and carpet, Koch snowflake, Hilbert and dragon curves, Pythagoras tree |
 | [`shape-generators`](plugins/shape-generators) | holes on a circle, a spur gear |
 | [`xy-points-importer`](plugins/xy-points-importer) | reads text files of `x,y` points |
-| [`stl-projection`](plugins/stl-projection) | imports an STL model as outlines: the shadow of the whole model or of chosen planes, or a slice at a depth, with a preview (needs baseCreator 1.6.0) |
+| [`barcodes`](plugins/barcodes) | Code 39, Code 128 and EAN-13 as rectangles |
 | [`gcode-tools`](plugins/gcode-tools) | postprocessors: numbered lines, no comments |
 | [`gcode-dialects`](plugins/gcode-dialects) | postprocessors for Mach3 / Mach4 / UCCNC and LinuxCNC (written from the manuals, not tried on the controllers) |
 

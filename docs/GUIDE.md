@@ -141,7 +141,7 @@ blob of bytes (`read_f32(data, pos)`, `read_f64`, `data.parse_le_int(pos, len)`)
 the values are in `ctx.p`. The program then opens an import window with the form and a **preview** (the script is run in the
 background after each change). A script that loops over a lot of data should use the native helpers (`read_stl(data)` and its
 `groups`, `project`, `section`; `union_polygons`; `xf_rings`): Rhai checks the size of arrays after every change, so building
-big arrays in a script is slow. See [`stl-projection`](../plugins/stl-projection) and the plugins guide in baseCreator.
+big arrays in a script is slow. See [`fractals`](../plugins/fractals) and the plugins guide in baseCreator.
 
 ## 6. Postprocessors
 

@@ -2,11 +2,11 @@
   "format": 1,
   "id": "barcodes",
   "name": "Barcodes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "min_base": "0.9.8",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
-  "description": "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.",
+  "description": "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).",
   "generators": [
     {
       "id": "barcode",
@@ -63,7 +63,7 @@
   "texts": {
     "pl": {
       "Barcodes": "Kody kreskowe",
-      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Kody kreskowe jednowymiarowe jako prostokąty: Code 39, Code 128 i EAN-13.",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).": "Kody kreskowe jednowymiarowe jako prostokąty: Code 39, Code 128 i EAN-13.",
       "Barcode": "Kod kreskowy",
       "A barcode in the middle of the work area, as bars to cut or engrave.": "Kod kreskowy pośrodku obszaru roboczego, jako kreski do wycięcia lub wygrawerowania.",
       "Type": "Rodzaj",
@@ -74,7 +74,7 @@
     },
     "de": {
       "Barcodes": "Strichcodes",
-      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Eindimensionale Strichcodes als Rechtecke: Code 39, Code 128 und EAN-13.",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).": "Eindimensionale Strichcodes als Rechtecke: Code 39, Code 128 und EAN-13.",
       "Barcode": "Strichcode",
       "A barcode in the middle of the work area, as bars to cut or engrave.": "Ein Strichcode in der Mitte des Arbeitsbereichs, als Balken zum Schneiden oder Gravieren.",
       "Type": "Typ",
@@ -85,7 +85,7 @@
     },
     "it": {
       "Barcodes": "Codici a barre",
-      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Codici a barre monodimensionali come rettangoli: Code 39, Code 128 ed EAN-13.",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).": "Codici a barre monodimensionali come rettangoli: Code 39, Code 128 ed EAN-13.",
       "Barcode": "Codice a barre",
       "A barcode in the middle of the work area, as bars to cut or engrave.": "Un codice a barre al centro dell'area di lavoro, come barre da tagliare o incidere.",
       "Type": "Tipo",
@@ -96,7 +96,7 @@
     },
     "fi": {
       "Barcodes": "Viivakoodit",
-      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Yksiulotteiset viivakoodit suorakulmioina: Code 39, Code 128 ja EAN-13.",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).": "Yksiulotteiset viivakoodit suorakulmioina: Code 39, Code 128 ja EAN-13.",
       "Barcode": "Viivakoodi",
       "A barcode in the middle of the work area, as bars to cut or engrave.": "Viivakoodi työalueen keskellä, palkkeina leikattavaksi tai kaiverrettavaksi.",
       "Type": "Tyyppi",
@@ -107,7 +107,7 @@
     },
     "zh": {
       "Barcodes": "条形码",
-      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "一维条形码，以矩形绘制：Code 39、Code 128 和 EAN-13。",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).": "一维条形码，以矩形绘制：Code 39、Code 128 和 EAN-13。",
       "Barcode": "条形码",
       "A barcode in the middle of the work area, as bars to cut or engrave.": "位于工作区域中央的条形码，以条形绘制，可切割或雕刻。",
       "Type": "类型",
@@ -118,7 +118,7 @@
     },
     "hi": {
       "Barcodes": "बारकोड",
-      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "आयतों के रूप में एक-आयामी बारकोड: Code 39, Code 128 और EAN-13।",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13. QR codes are made by the program itself (Arrange → Barcode / QR code…).": "आयतों के रूप में एक-आयामी बारकोड: Code 39, Code 128 और EAN-13।",
       "Barcode": "बारकोड",
       "A barcode in the middle of the work area, as bars to cut or engrave.": "कार्य क्षेत्र के बीच में एक बारकोड, काटने या उकेरने के लिए पट्टियों के रूप में।",
       "Type": "प्रकार",

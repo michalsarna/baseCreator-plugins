@@ -1,0 +1,131 @@
+{
+  "format": 1,
+  "id": "barcodes",
+  "name": "Barcodes",
+  "version": "1.0.0",
+  "min_base": "0.9.8",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "description": "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.",
+  "generators": [
+    {
+      "id": "barcode",
+      "name": "Barcode",
+      "description": "A barcode in the middle of the work area, as bars to cut or engrave.",
+      "script": "barcode.rhai",
+      "params": [
+        {
+          "id": "kind",
+          "label": "Type",
+          "kind": "choice",
+          "default": "Code 128",
+          "options": [
+            "Code 128",
+            "Code 39",
+            "EAN-13"
+          ]
+        },
+        {
+          "id": "text",
+          "label": "Text",
+          "kind": "text",
+          "default": "123456789012"
+        },
+        {
+          "id": "narrow",
+          "label": "Narrowest bar",
+          "kind": "number",
+          "default": 0.6,
+          "min": 0.1,
+          "max": 10,
+          "unit": "mm"
+        },
+        {
+          "id": "height",
+          "label": "Height",
+          "kind": "number",
+          "default": 15,
+          "min": 2,
+          "max": 300,
+          "unit": "mm"
+        },
+        {
+          "id": "layer",
+          "label": "Layer",
+          "kind": "number",
+          "default": 0,
+          "min": 0,
+          "max": 63
+        }
+      ]
+    }
+  ],
+  "texts": {
+    "pl": {
+      "Barcodes": "Kody kreskowe",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Kody kreskowe jednowymiarowe jako prostokąty: Code 39, Code 128 i EAN-13.",
+      "Barcode": "Kod kreskowy",
+      "A barcode in the middle of the work area, as bars to cut or engrave.": "Kod kreskowy pośrodku obszaru roboczego, jako kreski do wycięcia lub wygrawerowania.",
+      "Type": "Rodzaj",
+      "Text": "Tekst",
+      "Narrowest bar": "Najwęższa kreska",
+      "Height": "Wysokość",
+      "Layer": "Warstwa"
+    },
+    "de": {
+      "Barcodes": "Strichcodes",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Eindimensionale Strichcodes als Rechtecke: Code 39, Code 128 und EAN-13.",
+      "Barcode": "Strichcode",
+      "A barcode in the middle of the work area, as bars to cut or engrave.": "Ein Strichcode in der Mitte des Arbeitsbereichs, als Balken zum Schneiden oder Gravieren.",
+      "Type": "Typ",
+      "Text": "Text",
+      "Narrowest bar": "Schmalster Balken",
+      "Height": "Höhe",
+      "Layer": "Ebene"
+    },
+    "it": {
+      "Barcodes": "Codici a barre",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Codici a barre monodimensionali come rettangoli: Code 39, Code 128 ed EAN-13.",
+      "Barcode": "Codice a barre",
+      "A barcode in the middle of the work area, as bars to cut or engrave.": "Un codice a barre al centro dell'area di lavoro, come barre da tagliare o incidere.",
+      "Type": "Tipo",
+      "Text": "Testo",
+      "Narrowest bar": "Barra più stretta",
+      "Height": "Altezza",
+      "Layer": "Livello"
+    },
+    "fi": {
+      "Barcodes": "Viivakoodit",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "Yksiulotteiset viivakoodit suorakulmioina: Code 39, Code 128 ja EAN-13.",
+      "Barcode": "Viivakoodi",
+      "A barcode in the middle of the work area, as bars to cut or engrave.": "Viivakoodi työalueen keskellä, palkkeina leikattavaksi tai kaiverrettavaksi.",
+      "Type": "Tyyppi",
+      "Text": "Teksti",
+      "Narrowest bar": "Kapein palkki",
+      "Height": "Korkeus",
+      "Layer": "Taso"
+    },
+    "zh": {
+      "Barcodes": "条形码",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "一维条形码，以矩形绘制：Code 39、Code 128 和 EAN-13。",
+      "Barcode": "条形码",
+      "A barcode in the middle of the work area, as bars to cut or engrave.": "位于工作区域中央的条形码，以条形绘制，可切割或雕刻。",
+      "Type": "类型",
+      "Text": "文字",
+      "Narrowest bar": "最窄条宽",
+      "Height": "高度",
+      "Layer": "图层"
+    },
+    "hi": {
+      "Barcodes": "बारकोड",
+      "One-dimensional barcodes as rectangles: Code 39, Code 128 and EAN-13.": "आयतों के रूप में एक-आयामी बारकोड: Code 39, Code 128 और EAN-13।",
+      "Barcode": "बारकोड",
+      "A barcode in the middle of the work area, as bars to cut or engrave.": "कार्य क्षेत्र के बीच में एक बारकोड, काटने या उकेरने के लिए पट्टियों के रूप में।",
+      "Type": "प्रकार",
+      "Text": "टेक्स्ट",
+      "Narrowest bar": "सबसे संकरी पट्टी",
+      "Height": "ऊँचाई",
+      "Layer": "लेयर"
+    }
+  }
+}

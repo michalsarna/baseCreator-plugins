@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "id": "gcode-dialects",
+  "name": "G-code dialects",
+  "version": "1.0.0",
+  "min_base": "0.9.8",
+  "author": "Michał Sarna",
+  "license": "MIT OR Apache-2.0",
+  "description": "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.",
+  "programs": [
+    "millcreator"
+  ],
+  "postprocessors": [
+    {
+      "id": "mach",
+      "name": "Mach3 / Mach4 / UCCNC",
+      "description": "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.",
+      "script": "mach.rhai"
+    },
+    {
+      "id": "linuxcnc",
+      "name": "LinuxCNC",
+      "description": "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.",
+      "script": "linuxcnc.rhai"
+    }
+  ],
+  "texts": {
+    "pl": {
+      "G-code dialects": "Dialekty G-code",
+      "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.": "Postprocesory dla Mach3 / Mach4 i UCCNC oraz dla LinuxCNC.",
+      "Mach3 / Mach4 / UCCNC": "Mach3 / Mach4 / UCCNC",
+      "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.": "Bezpieczne tryby na początku, pauza na zmianę freza jako komunikat, wrzeciono wyłączone przed końcem.",
+      "LinuxCNC": "LinuxCNC",
+      "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.": "Program między liniami %, wygładzanie ścieżki, pauza na zmianę freza jako komunikat, M2 na końcu."
+    },
+    "de": {
+      "G-code dialects": "G-Code-Dialekte",
+      "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.": "Postprozessoren für Mach3 / Mach4 und UCCNC sowie für LinuxCNC.",
+      "Mach3 / Mach4 / UCCNC": "Mach3 / Mach4 / UCCNC",
+      "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.": "Sichere Modi am Anfang, die Pause für den Fräserwechsel als Meldung, Spindel vor dem Ende aus.",
+      "LinuxCNC": "LinuxCNC",
+      "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.": "Das Programm zwischen %-Zeilen, Bahnglättung, die Pause für den Fräserwechsel als Meldung, M2 am Ende."
+    },
+    "it": {
+      "G-code dialects": "Dialetti G-code",
+      "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.": "Postprocessori per Mach3 / Mach4 e UCCNC e per LinuxCNC.",
+      "Mach3 / Mach4 / UCCNC": "Mach3 / Mach4 / UCCNC",
+      "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.": "Modi sicuri all'inizio, la pausa per il cambio fresa come messaggio, mandrino spento prima della fine.",
+      "LinuxCNC": "LinuxCNC",
+      "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.": "Il programma tra righe %, raccordo del percorso, la pausa per il cambio fresa come messaggio, M2 alla fine."
+    },
+    "fi": {
+      "G-code dialects": "G-koodin murteet",
+      "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.": "Jälkikäsittelijät Mach3 / Mach4:lle ja UCCNC:lle sekä LinuxCNC:lle.",
+      "Mach3 / Mach4 / UCCNC": "Mach3 / Mach4 / UCCNC",
+      "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.": "Turvalliset tilat alussa, tauko terän vaihtoon viestinä, kara pois ennen loppua.",
+      "LinuxCNC": "LinuxCNC",
+      "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.": "Ohjelma %-rivien välissä, reitin pehmennys, tauko terän vaihtoon viestinä, M2 lopussa."
+    },
+    "zh": {
+      "G-code dialects": "G 代码方言",
+      "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.": "适用于 Mach3 / Mach4、UCCNC 和 LinuxCNC 的后处理器。",
+      "Mach3 / Mach4 / UCCNC": "Mach3 / Mach4 / UCCNC",
+      "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.": "开头设置安全模式，换刀暂停以消息显示，结束前关闭主轴。",
+      "LinuxCNC": "LinuxCNC",
+      "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.": "程序位于两个 % 行之间，路径混合，换刀暂停以消息显示，结尾为 M2。"
+    },
+    "hi": {
+      "G-code dialects": "G-कोड बोलियाँ",
+      "Postprocessors for Mach3 / Mach4 and UCCNC, and for LinuxCNC.": "Mach3 / Mach4 और UCCNC तथा LinuxCNC के लिए पोस्टप्रोसेसर।",
+      "Mach3 / Mach4 / UCCNC": "Mach3 / Mach4 / UCCNC",
+      "Safe modes at the start, the pause for a bit change as a message, the spindle off before the end.": "शुरू में सुरक्षित मोड, बिट बदलने का विराम संदेश के रूप में, अंत से पहले स्पिंडल बंद।",
+      "LinuxCNC": "LinuxCNC",
+      "The program between % lines, path blending, the pause for a bit change as a message, M2 at the end.": "दो % पंक्तियों के बीच प्रोग्राम, पथ ब्लेंडिंग, बिट बदलने का विराम संदेश के रूप में, अंत में M2।"
+    }
+  }
+}

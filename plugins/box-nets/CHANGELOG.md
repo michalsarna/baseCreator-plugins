@@ -1,4 +1,7 @@
 # Changelog
+## 2.4.0
+* Also for LightCreator: the continuous outline goes on the cut layer and the dashed folds on the fold layer (a laser cuts the first and scores the second with its own power and speed). No change for PenCreator.
+
 ## 2.3.1
 * Translations into German, Italian, Finnish, Chinese and Hindi, and Polish where it was missing (names, descriptions, labels, options and messages).
 

@@ -36,7 +36,7 @@ See the table on **https://michalsarna.github.io/baseCreator-plugins/** (built f
 
 | Plugin | What it does |
 |---|---|
-| [`box-nets`](plugins/box-nets) | the net of a box (prism, truncated prism, pyramid, cylinder, cone, truncated cone) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (PenCreator; needs baseCreator 1.12.0) |
+| [`box-nets`](plugins/box-nets) | (LightCreator and PenCreator) the net of a box (prism, truncated prism, pyramid, cylinder, cone, truncated cone) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (PenCreator; needs baseCreator 1.12.0) |
 | [`box-joints`](plugins/box-joints) | the same boxes for a laser: every face is a separate piece with fingers and notches that fit together, made for the thickness of the material (LightCreator; needs baseCreator 1.12.0) |
 | [`pcb-gerber`](plugins/pcb-gerber) | circuit boards: a Gerber layer (copper, board outline, legend) or an Excellon drill file from any board program; isolation, mirror, layers (needs baseCreator 1.6.0) |
 | [`pcb-kicad`](plugins/pcb-kicad) | circuit boards: a KiCad board (`.kicad_pcb`): outline, copper, holes, silkscreen in one go (needs baseCreator 1.15.0) |

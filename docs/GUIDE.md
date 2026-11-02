@@ -1,7 +1,7 @@
 # Guide for plugin authors
 
 A plugin is a **folder** with a `plugin.json` (the manifest) and the files it names. Programs on baseCreator
-(LightCreator, MillCreator, PenCreator) load it from their shared `plugins` folder or install it from the
+(LightCreator, MillCreator, PenCreator, BaseCreator) load it from their shared `plugins` folder or install it from the
 [official list](https://michalsarna.github.io/baseCreator-plugins/).
 
 - [1. Your first plugin in five minutes](#1-your-first-plugin-in-five-minutes)
@@ -58,7 +58,7 @@ A plugin is a **folder** with a `plugin.json` (the manifest) and the files it na
 - `min_base`: the oldest baseCreator (the shared base of the programs) the plugin needs. The `VERSIONS.md` of every program says
   which baseCreator a release uses ("baseCreator v0.9.8"); if unsure, use the version you tested with. The official list does not
   offer a plugin to a program that is too old, and the program refuses to load it.
-- `programs`: leave out for all programs; otherwise a list of `lightcreator`, `millcreator`, `pencreator`. The official
+- `programs`: leave out for all programs; otherwise a list of `lightcreator`, `millcreator`, `pencreator`, `basecreator` (`basecreator` needs `min_base` 1.59.0: older programs refuse a name they do not know). The official
   list shows every plugin to everybody, but marks which programs it is for.
 - Paths are relative to the plugin folder, no `..`. Scripts end in `.rhai`. Files are limited to 8 MB.
 - `texts`: `language code → English text → translation`. They translate the plugin's own texts: `name`,

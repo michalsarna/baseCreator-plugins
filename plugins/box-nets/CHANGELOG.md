@@ -1,4 +1,8 @@
 # Changelog
+## 2.4.1
+
+Also for BaseCreator, the drawing program. Needs baseCreator 1.59.0: older programs refuse a program name they do not know.
+
 ## 2.4.0
 * Also for LightCreator: the continuous outline goes on the cut layer and the dashed folds on the fold layer (a laser cuts the first and scores the second with its own power and speed). No change for PenCreator.
 

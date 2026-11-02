@@ -1,4 +1,8 @@
 # Changelog
+## 1.0.2
+
+Also for BaseCreator, the drawing program. Needs baseCreator 1.59.0: older programs refuse a program name they do not know.
+
 ## 1.0.1
 * Translations into German, Italian, Finnish, Chinese and Hindi, and Polish where it was missing (names, descriptions, labels, options and messages).
 

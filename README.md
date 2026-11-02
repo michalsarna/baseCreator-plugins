@@ -3,8 +3,8 @@
 # baseCreator plugins
 
 The official list of plugins for **[LightCreator](https://github.com/michalsarna/LightCreator)**,
-**[MillCreator](https://github.com/michalsarna/MillCreator)** and **[PenCreator](https://github.com/michalsarna/PenCreator)**
-(programs on [baseCreator](https://github.com/michalsarna/baseCreator)). A plugin adds clipart, machine presets,
+**[MillCreator](https://github.com/michalsarna/MillCreator)**, **[PenCreator](https://github.com/michalsarna/PenCreator)** and
+**[BaseCreator](https://github.com/michalsarna/baseCreator/blob/main/docs/BaseCreator.md)** (programs on [baseCreator](https://github.com/michalsarna/baseCreator)). A plugin adds clipart, machine presets,
 translations, importers of other file formats, **generators of shapes** (a form that makes a drawing) or **G-code
 postprocessors** to every program that can use it.
 
@@ -19,7 +19,7 @@ plugin is downloaded from this site, its checksum is checked, and it is ready in
 |---|---|
 | a generator | **File → Import → Generate shape…** |
 | an importer | **File → Import → Import with a plugin…**, Open, or drag and drop a file |
-| a postprocessor | chosen in the Plugins window; used by **Export G-code…** |
+| a postprocessor | chosen in the Plugins window; used by **Export G-code…** (BaseCreator has no G-code: there it can be installed, but does nothing) |
 | presets, clipart, translations | in the usual lists (adding a device, the clipart gallery, the interface) |
 
 Checking for updates at the start of a program is **off** unless you switch it on in the Plugins window. Nothing is
@@ -36,8 +36,8 @@ See the table on **https://michalsarna.github.io/baseCreator-plugins/** (built f
 
 | Plugin | What it does |
 |---|---|
-| [`box-nets`](plugins/box-nets) | (LightCreator and PenCreator) the net of a box (prism, truncated prism, pyramid, cylinder, cone, truncated cone) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (PenCreator; needs baseCreator 1.12.0) |
-| [`box-joints`](plugins/box-joints) | the same boxes for a laser: every face is a separate piece with fingers and notches that fit together, made for the thickness of the material (LightCreator; needs baseCreator 1.12.0) |
+| [`box-nets`](plugins/box-nets) | (LightCreator, PenCreator and BaseCreator) the net of a box (prism, truncated prism, pyramid, cylinder, cone, truncated cone) in one piece to cut out of paper or card: continuous outline, dashed folds, glue tabs, pictures with the lengths marked (needs baseCreator 1.59.0) |
+| [`box-joints`](plugins/box-joints) | the same boxes for a laser: every face is a separate piece with fingers and notches that fit together, made for the thickness of the material (LightCreator and BaseCreator; needs baseCreator 1.59.0) |
 | [`pcb-gerber`](plugins/pcb-gerber) | circuit boards: a Gerber layer (copper, board outline, legend) or an Excellon drill file from any board program; isolation, mirror, layers (needs baseCreator 1.6.0) |
 | [`pcb-kicad`](plugins/pcb-kicad) | circuit boards: a KiCad board (`.kicad_pcb`): outline, copper, holes, silkscreen in one go (needs baseCreator 1.15.0) |
 | [`pcb-eagle`](plugins/pcb-eagle) | circuit boards: an EAGLE / Fusion Electronics board (`.brd`) (needs baseCreator 1.6.0) |
@@ -60,7 +60,7 @@ works, send it here as a pull request ([CONTRIBUTING.md](CONTRIBUTING.md)). Ques
 
 ## Po polsku
 
-To oficjalna lista wtyczek do LightCreatora, MillCreatora i PenCreatora. W programie otwórz **Settings → Plugins… →
+To oficjalna lista wtyczek do LightCreatora, MillCreatora, PenCreatora i BaseCreatora. W programie otwórz **Settings → Plugins… →
 Official plugins** i naciśnij **Check for updates**: zobaczysz wszystkie wtyczki (także dla innych programów), a
 **Install** pobiera wtyczkę (z sumą kontrolną) do wspólnego folderu wszystkich programów, **Update** aktualizuje. Sprawdzanie
 aktualizacji przy starcie jest domyślnie wyłączone.

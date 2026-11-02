@@ -24,7 +24,7 @@ SITE_URL = "https://michalsarna.github.io/baseCreator-plugins/"
 REPO_URL = "https://github.com/michalsarna/baseCreator-plugins"
 ID_RE = re.compile(r"^[a-z0-9_-]{1,64}$")
 VER_RE = re.compile(r"^\d+(\.\d+){0,3}$")
-PROGRAMS = {"lightcreator", "millcreator", "pencreator"}
+PROGRAMS = {"lightcreator", "millcreator", "pencreator", "basecreator"}
 
 
 def fail(msg):
@@ -153,7 +153,7 @@ def main():
 a{{color:#f5883f}}table{{border-collapse:collapse;width:100%}}td,th{{border-bottom:1px solid #444;padding:.5rem;text-align:left;vertical-align:top}}
 img{{width:96px;height:96px;float:left;margin:0 1rem 1rem 0}}small{{color:#aaa}}</style>
 <img src="icon.png" alt=""><h1>baseCreator plugins</h1>
-<p>The official list of plugins for LightCreator, MillCreator and PenCreator. The programs read <a href="index.json">index.json</a>:
+<p>The official list of plugins for LightCreator, MillCreator, PenCreator and BaseCreator. The programs read <a href="index.json">index.json</a>:
 open <b>Settings → Plugins… → Official plugins</b> in a program to install and update them.
 How to write one, and how to send it here: <a href="{REPO_URL}">the repository</a>.</p>
 <table><tr><th>Plugin</th><th>Version</th><th>For</th><th>Brings</th></tr>{rows}</table></html>"""

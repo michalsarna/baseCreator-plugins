@@ -2,13 +2,14 @@
   "format": 1,
   "id": "box-joints",
   "name": "Box with joints",
-  "version": "1.0.1",
-  "min_base": "1.12.0",
+  "version": "1.0.2",
+  "min_base": "1.59.0",
   "author": "Michał Sarna",
   "license": "MIT OR Apache-2.0",
   "description": "A box to cut out of plywood, acrylic or card with a laser and put together without glue: every face is a separate piece and the edges have fingers and notches that fit into each other, made for the thickness of your material (the sizes are the outer sizes of the box). A prism or a truncated prism on a triangle, rectangle, trapezoid or regular polygon, or a pyramid on a triangle or rectangle; on a circle or an ellipse a cylinder (straight or cut slantways), a cone or a truncated cone, with the wall closed by a comb. The picture shows which length is which.",
   "programs": [
-    "lightcreator"
+    "lightcreator",
+    "basecreator"
   ],
   "generators": [
     {
